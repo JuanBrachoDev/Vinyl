@@ -18,7 +18,6 @@ class CartTestCase(TestCase):
         }
         return test_album
 
-
     """
     Tests views in cart app.
     """
@@ -30,7 +29,7 @@ class CartTestCase(TestCase):
 
     def test_add_to_cart(self):
         with self.subTest:
-            # Post test album 
+            # Post test album
             response = self.app.post(
                 "/add_to_cart", data=self.vinyl_example(),
                 follow_redirects=True
@@ -40,7 +39,7 @@ class CartTestCase(TestCase):
 
     def test_adjust_cart(self):
         with self.subTest:
-            # Post test album 
+            # Post test album
             self.app.post(
                 "/add_to_cart", data=self.vinyl_example(),
                 follow_redirects=True
@@ -55,7 +54,7 @@ class CartTestCase(TestCase):
 
     def test_delete_from_cart(self):
         with self.subTest:
-            # Post test album 
+            # Post test album
             self.app.post(
                 "/add_to_cart", data=self.vinyl_example(),
                 follow_redirects=True
