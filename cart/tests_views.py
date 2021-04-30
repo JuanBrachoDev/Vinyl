@@ -3,7 +3,7 @@ from products.models import Product
 from django.shortcuts import get_object_or_404
 
 
-class CartTestCase(TestCase):
+class CartViewsTestCase(TestCase):
 
     """
     Helper functions
@@ -11,15 +11,15 @@ class CartTestCase(TestCase):
 
     def vinyl_example(self):
         test_album = {
-            "name" : "TestName",
-            "genre" : "Generic",
-            "price" : 99.99,
-            "artist" : "TheBest",
+            "name": "TestName",
+            "genre": "Generic",
+            "price": 99.99,
+            "artist": "TheBest",
         }
         return test_album
 
     """
-    Tests views in cart app.
+    Tests views in cart app
     """
 
     def test_cart(self):
