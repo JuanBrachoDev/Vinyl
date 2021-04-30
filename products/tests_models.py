@@ -25,7 +25,7 @@ class ProductsModelsTestCase(TestCase):
         # Create test product from helper function and test product from Model
         product_1 = self.product_example()
         product_2 = Order.objects.create(genre="Generic")
-        # Compare both items for a last name match
+        # Compare both items for a genre match
         self.assertEqual(
             product_1['genre'],
             product_2.genre
