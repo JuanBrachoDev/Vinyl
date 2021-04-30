@@ -51,7 +51,7 @@ class CheckoutTestCase(TestCase):
         # Create test order line item from helper function 
         # and test order line item from Model
         order_line_item_1 = self.order_line_example()
-        order_line_item_2 = Order.objects.create(album=4)
+        order_line_item_2 = OrderLineItem.objects.create(album=4)
         # Compare both items for an album match
         self.assertEqual(order_line_item_1['album'], order_line_item_2.album)
             
