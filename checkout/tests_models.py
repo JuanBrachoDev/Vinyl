@@ -35,6 +35,7 @@ class CheckoutModelsTestCase(TestCase):
             "quantity" = 2,
             "total" = 120.99
         }
+        return test_order_line
 
     """
     Tests models in checkout app
