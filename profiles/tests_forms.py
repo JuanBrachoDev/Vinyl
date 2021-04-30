@@ -1,18 +1,17 @@
 from django.test import TestCase
-from .forms import OrderForm
+from .forms import UserForm
 
 
-class CheckoutFormsTestCase(TestCase):
+class ProfilesFormsTestCase(TestCase):
 
     """
-    Tests forms in checkout app
+    Tests forms in profiles app
     """
 
     def test_form(self):
-        form = OrderForm({
+        form = UserForm({
             "first_name": "",
             "last_name": "",
-            "email": "",
             "address_line_1": "",
             "address_line_2": "",
             "city": "",
@@ -25,8 +24,6 @@ class CheckoutFormsTestCase(TestCase):
             form.errors['first_name'][0], 'This is a required field.')
         self.assertEqual(
             form.errors['last_name'][0], 'This is a required field.')
-        self.assertEqual(
-            form.errors['email'][0], 'This is a required field.')
         self.assertEqual(
             form.errors['address_line_1'][0], 'This is a required field.')
         self.assertEqual(
