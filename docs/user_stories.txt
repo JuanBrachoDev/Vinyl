@@ -1,0 +1,22 @@
+As a regular user I need to:
+
+- Be able to register with my google account or with my email and a password.
+- Be able log in and log out with my credentials.
+- Be able to recover my password in case I lose it.
+- Be able to change the default delivery information so it is autofilled whenever I placed an order.
+- Be able to search for artists, albums and songs so I can find the desired album.
+- Be able to order any album available in the store.
+- Be able to look at each album's details so I can make sure it has the contents I want.
+- Be able to look at an artist's page so I can get a brief description of them along with their albums.
+- Be able to access my shopping cart so I can check all items I have added before checkout.
+- Be able to adjust the quantity of items from within the shopping cart.
+- Be able to easily fill the checkout form and feel like it is a secure transaction.
+- Be able to check for a confirmation email upon successfully ordering any items.
+
+
+As an admin I need to:
+
+- Be able to do everything a regular user does.
+- Be able to add items to the catalog.
+- Be able to modify items in the catalog.
+- Be able to remove items from the catalog.
