@@ -6,47 +6,47 @@ Go back to original [document](https://github.com/JuanBrachoDev/Vinyl/tree/maste
 
 ### Home:
 
-![Home Mobile](wireframes/mobile/home_mobile.png)
+<img src="wireframes/mobile/home_mobile.png" width=50% height=50% alt="Home Mobile">
 
 ### Album:
 
-![Album Mobile](wireframes/mobile/album_mobile.png)
+<img src="wireframes/mobile/album_mobile.png" width=50% height=50% alt="Album Mobile">
 
 ### Artist:
 
-![Artist Mobile](wireframes/mobile/artist_mobile.png)
+<img src="wireframes/mobile/artist_mobile.png" width=50% height=50% alt="Artist Mobile">
 
 ### Register:
 
-![Register Mobile](wireframes/mobile/register_mobile.png)
+<img src="wireframes/mobile/register_mobile.png" width=50% height=50% alt="Register Mobile">
 
 ### Log in:
 
-![Log In Mobile](wireframes/mobile/login_mobile.png)
+<img src="wireframes/mobile/login_mobile.png" width=50% height=50% alt="Log In Mobile">
 
 ### Social Account Register:
 
-![Social Account Mobile](wireframes/mobile/social_register_mobile.png)
+<img src="wireframes/mobile/social_register_mobile.png" width=50% height=50% alt="Social Account Mobile">
 
 ### Recover Password:
 
-![Recover Password Mobile](wireframes/mobile/recover_mobile.png)
+<img src="wireframes/mobile/recover_mobile.png" width=50% height=50% alt="Recover Password Mobile">
 
 ### Profile:
 
-![Profile Mobile](wireframes/mobile/profile_mobile.png)
+<img src="wireframes/mobile/profile_mobile.png" width=50% height=50% alt="Profile Mobile">
 
 ### Cart:
 
-![Cart Mobile](wireframes/mobile/cart_mobile.png)
+<img src="wireframes/mobile/cart_mobile.png" width=50% height=50% alt="Cart Mobile">
 
 ### Checkout:
 
-![Checkout Mobile](wireframes/mobile/checkout_mobile.png)
+<img src="wireframes/mobile/checkout_mobile.png" width=50% height=50% alt="Checkout Mobile">
 
 ### Admin Add Product:
 
-![Adming Add Product Mobile](wireframes/mobile/add_product_mobile.png)
+<img src="wireframes/mobile/add_product_mobile.png" width=50% height=50% alt="Admin Add Product Mobile">
 
 #### Desktop wireframes:
 
@@ -54,44 +54,44 @@ Go back to original [document](https://github.com/JuanBrachoDev/Vinyl/tree/maste
 
 ### Home:
 
-![Home Desktop](wireframes/desktop/home_desktop.png)
+<img src="wireframes/desktop/home_desktop.png" width=80% height=80% alt="Home Desktop">
 
 ### Album:
 
-![Album Desktop](wireframes/desktop/album_desktop.png)
+<img src="wireframes/desktop/album_desktop.png" width=80% height=80% alt="Album Desktop">
 
 ### Artist:
 
-![Artist Desktop](wireframes/desktop/artist_desktop.png)
+<img src="wireframes/desktop/artist_desktop.png" width=80% height=80% alt="Artist Desktop">
 
 ### Register:
 
-![Register Desktop](wireframes/desktop/register_desktop.png)
+<img src="wireframes/desktop/register_desktop.png" width=80% height=80% alt="Register Desktop">
 
 ### Log in:
 
-![Log In Desktop](wireframes/desktop/login_desktop.png)
+<img src="wireframes/desktop/login_desktop.png" width=80% height=80% alt="Log In Desktop">
 
 ### Social Account Register:
 
-![Social Account Register](wireframes/desktop/social_register_desktop.png)
+<img src="wireframes/desktop/social_register_desktop.png" width=80% height=80% alt="Social Account Register">
 
 ### Recover Password:
 
-![Recover Password Desktop](wireframes/desktop/recover_desktop.png)
+<img src="wireframes/desktop/recover_desktop.png" width=80% height=80% alt="Recover Password Desktop">
 
 ### Profile:
 
-![Profile Desktop](wireframes/desktop/profile_desktop.png)
+<img src="wireframes/desktop/profile_desktop.png" width=80% height=80% alt="Profile Desktop">
 
 ### Cart:
 
-![Cart Desktop](wireframes/desktop/cart_desktop.png)
+<img src="wireframes/desktop/cart_desktop.png" width=80% height=80% alt="Cart Desktop">
 
 ### Checkout:
 
-![Checkout Desktop](wireframes/desktop/checkout_desktop.png)
+<img src="wireframes/desktop/checkout_desktop.png" width=80% height=80% alt="Checkout Desktop">
 
 ### Admin Add Product:
 
-![Adming Add Product Desktop](wireframes/desktop/add_product_desktop.png)
+<img src="wireframes/desktop/add_product_desktop.png" width=80% height=80% alt="Admin Add Product Desktop">
