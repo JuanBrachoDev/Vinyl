@@ -1,6 +1,6 @@
 from django.test import TestCase
 from datetime import date
-from .models import Order, OrderLineItem
+from .models import Order, CartLineItem
 
 
 class CheckoutModelsTestCase(TestCase):
@@ -24,13 +24,14 @@ class CheckoutModelsTestCase(TestCase):
             "order_date": datetime.now(),
             "delivery_cost": 9.99,
             "product_cost": 90.00,
-            "grand_total": 99.99,            
+            "grand_total": 99.99,
         }
         return test_order
 
-    def order_line_example(self):
+    def cart_line_example(self):
         test_order_line = {
             "order" = 2,
+            "user" = 3
             "album" = 4,
             "quantity" = 2,
             "total" = 120.99
@@ -51,10 +52,10 @@ class CheckoutModelsTestCase(TestCase):
             order_line_item_2.last_name
         )
 
-    def test_order_line_item(self):
+    def test_cart_line_item(self):
         # Create test order line item from helper function
         # and test order line item from Model
-        order_line_item_1 = self.order_line_example()
-        order_line_item_2 = OrderLineItem.objects.create(album=4)
+        cart_line_item_1 = self.cart_line_example()
+        cart_line_item_2 = CartLineItem.objects.create(album=4)
         # Compare both items for an album match
-        self.assertEqual(order_line_item_1['album'], order_line_item_2.album)
+        self.assertEqual(cart_line_item_1['album'], cart_line_item_2.album)
