@@ -19,6 +19,7 @@
                 crossorigin="anonymous" type="text/css">
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
                 integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+            <link rel="stylesheet" href="{% static 'css/base.css' %}">
         {% endblock %}
 
         {% block extra_css %}
@@ -45,10 +46,11 @@
     <body>
         <header class="container-fluid fixed-top">
             <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
-                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-                    <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                        <img src="{{ MEDIA_URL }}logo.png" alt="Vinyl Logo"><h2 class="logo-font text-black my-0">Vinyl</h2>
+                <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+                    <a href="{% url 'home' %}" class="nav-link main-logo-link float-left">
+                        <img src="{{ MEDIA_URL }}logo.png" alt="Vinyl Logo">
                     </a>
+                    <h2 class="float-left text-black align-middle">Vinyl</h2>
                 </div>
                 <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
                     <form method="GET" action="">
@@ -81,10 +83,10 @@
                                     <a href="" class="dropdown-item">Product Management</a>
                                 {% endif %}
                                     <a href="" class="dropdown-item">My Profile</a>
-                                    <a href="" class="dropdown-item">Logout</a>
+                                    <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                                 {% else %}
-                                    <a href="" class="dropdown-item">Register</a>
-                                    <a href="" class="dropdown-item">Login</a>
+                                    <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                                    <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
                                 {% endif %}
                             </div>
                         </li>
