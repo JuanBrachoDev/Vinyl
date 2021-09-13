@@ -26,11 +26,11 @@
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                             <div class="card h-100 border-0">
                                 {% if album.image %}
-                                    <a href="">
+                                    <a href="{% url 'album_detail' album.id %}">
                                         <img class="card-img-top img-fluid" src="{{ album.image.url }}" alt="{{ album.name }}">
                                     </a>
                                 {% else %}
-                                    <a href="">
+                                    <a href="{% url 'album_detail' album.id %}">
                                         <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ album.name }}">
                                     </a>
                                 {% endif %}
@@ -46,6 +46,9 @@
                                         <p class="mb-0 mt-0">by Independent Artist</p>
                                     </div>
                                 {% endif %}
+                                <div class="card-body pb-0 pt-0">
+                                    <p class="mb-0 mt-0">{{ album.genre }}</p>
+                                </div>
                                 <div class="card-footer bg-white pt-0 border-0 text-left">
                                     <div class="row">
                                         <div class="col">

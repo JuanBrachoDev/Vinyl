@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Album, Artist
 
 # Create your views here.
@@ -26,3 +26,15 @@ def all_artists(request):
     }
 
     return render(request, 'products/artists.html', context)
+
+
+def album_detail(request, album_id):
+    """ A view to display the details of a single album. """
+
+    album = get_object_or_404(Album, pk=album_id)
+
+    context = {
+        'album': album,
+    }
+
+    return render(request, 'products/album_detail.html', context)
