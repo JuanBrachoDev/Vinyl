@@ -38,3 +38,19 @@ def album_detail(request, album_id):
     }
 
     return render(request, 'products/album_detail.html', context)
+
+
+def artist_detail(request, artist_id):
+    """ A view to display the details of a single artist. """
+
+    all_albums = Album.objects.all()
+
+    artist = get_object_or_404(Artist, pk=artist_id)
+    albums = all_albums.filter(artist=artist.id)
+
+    context = {
+        'artist': artist,
+        'albums': albums,
+    }
+
+    return render(request, 'products/artist_detail.html', context)

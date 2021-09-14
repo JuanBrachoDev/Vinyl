@@ -26,7 +26,7 @@
                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                             <div class="card h-100 border-0">
                                 {% if artist.image %}
-                                    <a href="">
+                                <a href="{% url 'artist_detail' artist.id %}">
                                         <img class="card-img-top img-fluid" src="{{ artist.image.url }}" alt="{{ artist.name }}">
                                     </a>
                                 {% else %}
