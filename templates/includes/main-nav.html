@@ -7,10 +7,10 @@
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="albums-link">
                 <a href="{% url 'albums' %}" class="dropdown-item">All Albums</a>
-                <a href="" class="dropdown-item">By Price</a>
-                <a href="" class="dropdown-item">By Rating</a>
-                <a href="" class="dropdown-item">By Genre</a>
-                <a href="" class="dropdown-item">By Artist</a>
+                <a href="{% url 'albums' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
+                <a href="{% url 'albums' %}?sort=rating&direction=desc" class="dropdown-item">By Rating</a>
+                <a href="{% url 'albums' %}?sort=genre&direction=asc" class="dropdown-item">By Genre</a>
+                <a href="{% url 'albums' %}?sort=artist&direction=asc" class="dropdown-item">By Artist</a>
             </div>
         </li>
 

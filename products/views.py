@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from .models import Album, Artist
+from django.db.models.functions import Lower
 
 # Create your views here.
 
@@ -11,8 +12,27 @@ def all_albums(request):
 
     albums = Album.objects.all()
     query = None
+    sort = None
+    direction = None
 
     if request.GET:
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if sortkey == 'name':
+                sortkey = 'lower_name'
+                albums = albums.annotate(lower_name=Lower('name'))
+
+            if sortkey == 'artist':
+                sortkey = 'lower_name'
+                albums = albums.annotate(lower_name=Lower('artist__name'))
+
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            albums = albums.order_by(sortkey)
+
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
@@ -22,9 +42,12 @@ def all_albums(request):
             queries = Q(name__icontains=query) | Q(genre__icontains=query) | Q(artist__name__icontains=query)
             albums = albums.filter(queries)
 
+    current_sorting = f'{sort}_{direction}'
+
     context = {
         'albums': albums,
         'search_term': query,
+        'current_sorting': current_sorting,
     }
 
     return render(request, 'products/albums.html', context)
