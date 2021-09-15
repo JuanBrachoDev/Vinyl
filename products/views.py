@@ -33,6 +33,10 @@ def all_albums(request):
                     sortkey = f'-{sortkey}'
             albums = albums.order_by(sortkey)
 
+        if 'genre' in request.GET:
+                genres = request.GET['genre'].split(',')
+                albums = albums.filter(genre__in=genres)
+
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
