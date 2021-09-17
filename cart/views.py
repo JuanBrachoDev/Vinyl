@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse
+from django.contrib import messages
+from products.models import Album
 
 # Create your views here.
 
@@ -12,6 +14,7 @@ def view_cart(request):
 def add_to_cart(request, item_id):
     """ Add a quantity of the specified product to the shopping cart """
 
+    album = Album.objects.get(pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     cart = request.session.get('cart', {})
@@ -20,6 +23,7 @@ def add_to_cart(request, item_id):
         cart[item_id] += quantity
     else:
         cart[item_id] = quantity
+        messages.success(request, f'Added {album.name} to your cart.')
 
     request.session['cart'] = cart
     return redirect(redirect_url)
@@ -29,23 +33,12 @@ def adjust_cart(request, item_id):
     """Adjust the quantity of the specified product to the specified amount"""
 
     quantity = int(request.POST.get('quantity'))
-    size = None
-    if 'product_size' in request.POST:
-        size = request.POST['product_size']
     cart = request.session.get('cart', {})
 
-    if size:
-        if quantity > 0:
-            cart[item_id]['items_by_size'][size] = quantity
-        else:
-            del cart[item_id]['items_by_size'][size]
-            if not cart[item_id]['items_by_size']:
-                cart.pop(item_id)
+    if quantity > 0:
+        cart[item_id] = quantity
     else:
-        if quantity > 0:
-            cart[item_id] = quantity
-        else:
-            cart.pop(item_id)
+        cart.pop(item_id)
 
     request.session['cart'] = cart
     return redirect(reverse('view_cart'))
@@ -54,18 +47,10 @@ def adjust_cart(request, item_id):
 def remove_from_cart(request, item_id):
     """Remove the item from the shopping cart"""
 
-    try:
-        size = None
-        if 'product_size' in request.POST:
-            size = request.POST['product_size']
-        cart = request.session.get('cart', {})
+    cart = request.session.get('cart', {})
 
-        if size:
-            del cart[item_id]['items_by_size'][size]
-            if not cart[item_id]['items_by_size']:
-                cart.pop(item_id)
-        else:
-            cart.pop(item_id)
+    try:
+        cart.pop(item_id)
 
         request.session['cart'] = cart
         return HttpResponse(status=200)
