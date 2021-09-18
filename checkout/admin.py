@@ -1,3 +1,29 @@
 from django.contrib import admin
+from .models import Order, OrderLineItem
 
-# Register your models here.
+
+class OrderLineItemAdminInline(admin.TabularInline):
+    model = OrderLineItem
+    readonly_fields = ('line_item_total',)
+
+
+class OrderAdmin(admin.ModelAdmin):
+    inlines = (OrderLineItemAdminInline,)
+
+    readonly_fields = ('order_number', 'user', 'order_date',
+                       'delivery_cost', 'product_total',
+                       'grand_total',)
+
+    fields = ('order_number', 'order_date', 'user', 'first_name',
+              'last_name', 'email', 'phone_number',
+              'county', 'eircode', 'city', 'address_line1',
+              'address_line2', 'delivery_cost',
+              'product_total', 'grand_total',)
+
+    list_display = ('order_number', 'order_date', 'first_name', 'last_name',
+                    'product_total', 'delivery_cost', 'grand_total',)
+
+    ordering = ('-order_date',)
+
+
+admin.site.register(Order, OrderAdmin)
