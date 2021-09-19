@@ -1,6 +1,7 @@
 from django.urls import path
 from . import views
 
+# Product urls
 urlpatterns = [
     path('albums/', views.all_albums, name='albums'),
     path('albums/<album_id>/', views.album_detail, name='album_detail'),

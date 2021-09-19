@@ -4,8 +4,6 @@ from django.db.models import Q
 from .models import Album, Artist
 from django.db.models.functions import Lower
 
-# Create your views here.
-
 
 def all_albums(request):
     """ A view to show all albums, including sorting and search queries """
@@ -34,16 +32,20 @@ def all_albums(request):
             albums = albums.order_by(sortkey)
 
         if 'genre' in request.GET:
-                genres = request.GET['genre'].split(',')
-                albums = albums.filter(genre__in=genres)
+            genres = request.GET['genre'].split(',')
+            albums = albums.filter(genre__in=genres)
 
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request, "You didn't enter any search criteria!")
+                messages.error(request,
+                               "You didn't enter any search criteria!")
                 return redirect(reverse('albums'))
 
-            queries = Q(name__icontains=query) | Q(genre__icontains=query) | Q(artist__name__icontains=query)
+            queries = Q(
+                name__icontains=query) | Q(
+                    genre__icontains=query) | Q(
+                        artist__name__icontains=query)
             albums = albums.filter(queries)
 
     current_sorting = f'{sort}_{direction}'
@@ -57,18 +59,6 @@ def all_albums(request):
     return render(request, 'products/albums.html', context)
 
 
-def all_artists(request):
-    """ A view to show all artists, including sorting and search queries """
-
-    artists = Artist.objects.all()
-
-    context = {
-        'artists': artists,
-    }
-
-    return render(request, 'products/artists.html', context)
-
-
 def album_detail(request, album_id):
     """ A view to display the details of a single album. """
 
@@ -79,6 +69,18 @@ def album_detail(request, album_id):
     }
 
     return render(request, 'products/album_detail.html', context)
+
+
+def all_artists(request):
+    """ A view to show all artists, including sorting and search queries """
+
+    artists = Artist.objects.all()
+
+    context = {
+        'artists': artists,
+    }
+
+    return render(request, 'products/artists.html', context)
 
 
 def artist_detail(request, artist_id):
