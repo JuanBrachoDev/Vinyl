@@ -4,6 +4,7 @@ from django.contrib import messages
 from .forms import OrderForm
 
 
+# A view that shows the checkout form and a summary of the order
 def checkout(request):
     cart = request.session.get('cart', {})
     if not cart:
