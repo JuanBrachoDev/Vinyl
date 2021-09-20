@@ -11,6 +11,7 @@ def cart_contents(request):
     product_count = 0
     cart = request.session.get('cart', {})
 
+    # Adds each item's id, quantity and album to cart_items
     for item_id, quantity in cart.items():
         album = get_object_or_404(Album, pk=item_id)
         total += quantity * album.price
@@ -21,6 +22,7 @@ def cart_contents(request):
             'album': album,
         })
 
+    # Calculates delivery fee
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
         free_delivery_delta = settings.FREE_DELIVERY_THRESHOLD - total
@@ -28,6 +30,7 @@ def cart_contents(request):
         delivery = 0
         free_delivery_delta = 0
 
+    # Grand total
     grand_total = delivery + total
 
     context = {
