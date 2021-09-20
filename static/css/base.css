@@ -139,7 +139,7 @@ hr {
     }
   }
   
-/* fixed top navbar only on medium and up */
+/* Fixed top navbar only on medium and up */
 @media (min-width: 992px) {
     .fixed-top-desktop-only {
         position: fixed;
@@ -154,8 +154,42 @@ hr {
     }
 }
 
-/* pad the top a bit when navbar is collapsed on mobile */
+/* Pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
     .header-container {
         padding-top: 96px;
     }
+}
+
+/* Clears space to allow for menu to fit in a single row on small mobiles */
+@media (max-width: 500px) {
+    #mobile-navbar {
+        padding-left: 0px;
+    }
+
+    #mobile-navbar li{
+        margin-right: 0px;
+    }
+
+    #mobile-navbar a{
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+
+    #user-options span {
+        display: none;
+    }
+
+    #user-options p:after {
+        content: "Account";
+    }
+
+    .navbar {
+        padding-left: 8px;
+        padding-right: 8px; 
+    }
+
+    .dropdown-menu {
+        left: -30px;
+    }
+}
