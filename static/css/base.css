@@ -1,7 +1,117 @@
+/* ------------------------------- General */ 
+
+body { 
+    font-family: 'Righteous', cursive;
+    background: url('/media/background.png') repeat;
+    color: black;
+}
+
+
+/* ------------------------------- Navbar */ 
+
+#topnav {
+    background: url('/media/background.png') repeat; 
+
+}
+
+#topnav a {
+    color: #2e1155;
+}
+
+/* Vertically centers text in logo */ 
+.main-logo-link {
+    line-height: 60px;
+}
+
+/* Logo text  */
+.logo-text {
+    font-family: 'Monoton', cursive;
+    text-align: center;
+    padding-left: 15px;
+    font-size: 45px;
+    color: #2e1155;
+    transition: color 0.5s;
+}
+
+/* Logo icon size and rotation mouseover animation */
 .main-logo-link img {
     width: 60px;
     height: 60px;
+    transition: transform 0.5s;
+    transform: rotate(0deg);
 }
+
+.nav-link:hover > img {
+    transition: transform 0.5s;
+    transform: rotate(180deg);
+    color: #B026FF;
+}
+
+/* Logo text color mouseover animation */
+.nav-link:hover > .logo-text {
+    color: #B026FF;
+    transition: color 0.5s;
+}
+
+/* Shopping cart mouseover animation */
+#shopping-cart-link:hover i {
+    animation-duration: 3s;
+    animation-name: shopping-cart-link;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+}
+
+@keyframes shopping-cart-link {
+    25%  {transform: rotate(-30deg);}
+    75%  {transform: rotate(30deg);}
+
+}
+
+/* Profile icon mouseover animation */
+#user-options:hover i {
+    animation-duration: 3s;
+    animation-name: user-icon-loop;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+}
+
+@keyframes user-icon-loop {
+    25%  {transform: translateY(-5px);}
+    75%  {transform: translateY(5px);}
+
+}
+
+/* Search bar borders */
+#nav-search-bar input, .btn {
+    border: 1px solid #2e1155;
+}
+
+/* Navbar menu */ 
+.navbar {
+    border-bottom: 2px double #2e1155;
+    border-top: 2px double #2e1155;
+}
+
+#main-nav a {
+    color: blueviolet;
+}
+
+/* Line breaks in between items */
+hr {
+    border-top: 1px solid rgba(46, 17, 85, 0.2)
+}
+
+/* Mobile burger menu button */
+.navbar-light .navbar-toggler {
+    color: #2e1155;
+    border-color: rgba(46, 17, 85, 1);
+}
+
+/* Mobile menu anchors */
+.navbar a {
+    color: #2e1155;
+}
+
 
 /* ------------------------------- bootstrap toasts */
 
@@ -43,3 +153,9 @@
         padding-top: 164px;
     }
 }
+
+/* pad the top a bit when navbar is collapsed on mobile */
+@media (max-width: 991px) {
+    .header-container {
+        padding-top: 96px;
+    }
