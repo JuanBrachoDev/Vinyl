@@ -113,6 +113,18 @@ hr {
 }
 
 
+/* ------------------------------- Album detail */
+
+.album-detail-cover-mobile {
+    width: 275px;
+    height: 275px;
+}
+
+.image-container {
+    justify-content: center;
+}
+
+
 /* ------------------------------- bootstrap toasts */
 
 .message-container {
