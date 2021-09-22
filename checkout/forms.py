@@ -25,7 +25,7 @@ class OrderForm(forms.ModelForm):
             'address_line2': 'Address Line 2',
             'city': 'City',
             'county': 'County',
-            'eircode': 'Postal Code',
+            'eircode': 'Eircode',
         }
 
         self.fields['first_name'].widget.attrs['autofocus'] = True
