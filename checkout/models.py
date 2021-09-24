@@ -1,6 +1,6 @@
 import uuid
 
-from django.contrib.auth.models import User
+from profiles.models import UserProfile
 from django.db import models
 from django.db.models import Sum
 from django.conf import settings
@@ -11,8 +11,10 @@ from products.models import Album
 # Order model
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False)
-    user = models.ForeignKey(
-        User, null=False, blank=False, on_delete=models.PROTECT)
+    user_profile = models.ForeignKey(
+        UserProfile, null=True, blank=False, on_delete=models.PROTECT,
+        related_name='orders'
+        )
     first_name = models.CharField(max_length=50, null=False, blank=False)
     last_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
