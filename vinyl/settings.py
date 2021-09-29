@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'allauth.socialaccount.providers.spotify',
     'cart',
     'checkout',
     'home',
@@ -53,7 +54,7 @@ INSTALLED_APPS = [
     'crispy_forms',
 
     # Social media providers
-    'spotify.apps.SpotifyConfig',
+    #'spotify.apps.SpotifyConfig',
 ]
 
 MIDDLEWARE = [
@@ -107,6 +108,15 @@ AUTHENTICATION_BACKENDS = [
 
 SITE_ID = 1
 
+SOCIALACCOUNT_PROVIDERS = {
+    "spotify": {
+        "APP": {
+            "client_id": os.environ.get("SPOTIFY_CLIENT_ID"),
+            "secret": os.environ.get("SPOTIFY_CLIENT_SECRET"),
+        },
+    }
+}
+
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
@@ -115,7 +125,7 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/accounts/spotify/login/callback/'
 
 WSGI_APPLICATION = 'vinyl.wsgi.application'
 
@@ -192,8 +202,3 @@ STANDARD_DELIVERY_PERCENTAGE = 10
 STRIPE_CURRENCY = 'usd'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
-
-# Spotify
-SPOTIFY_CLIENT_ID = os.getenv('SPOTIFY_CLIENT_ID')
-SPOTIFY_CLIENT_SECRET = os.getenv('SPOTIFY_CLIENT_SECRET')
-SPOTIFY_REDIRECT_URI = os.getenv('SPOTIFY_REDIRECT_URI')
