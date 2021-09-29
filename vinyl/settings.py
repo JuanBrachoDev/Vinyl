@@ -52,9 +52,6 @@ INSTALLED_APPS = [
 
     # Other
     'crispy_forms',
-
-    # Social media providers
-    #'spotify.apps.SpotifyConfig',
 ]
 
 MIDDLEWARE = [
