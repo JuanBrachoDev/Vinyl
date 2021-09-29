@@ -36,7 +36,7 @@ def checkout(request):
                     album = Album.objects.get(id=item_id)
                     order_line_item = OrderLineItem(
                         order=order,
-                        album=album,
+                        product=album,
                         quantity=item_data,
                     )
                     order_line_item.save()
