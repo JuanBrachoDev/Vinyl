@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
-from .models import Album, Artist
 from django.db.models.functions import Lower
+
+from .models import Album, Artist
+from .forms import AlbumForm, ArtistForm
 
 
 def all_albums(request):
@@ -97,3 +99,25 @@ def artist_detail(request, artist_id):
     }
 
     return render(request, 'products/artist_detail.html', context)
+
+
+def add_album(request):
+    """ Add an album to the store """
+    form = AlbumForm()
+    template = 'products/add_album.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
+
+
+def add_artist(request):
+    """ Add an artist to the store """
+    form = ArtistForm()
+    template = 'products/add_artist.html'
+    context = {
+        'form': form,
+    }
+
+    return render(request, template, context)
