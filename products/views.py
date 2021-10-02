@@ -134,10 +134,58 @@ def add_artist(request):
             messages.error(request, 'Failed to add artist. Please ensure the form is valid.')
     else:
         form = ArtistForm()
-        
+
     template = 'products/add_artist.html'
     context = {
         'form': form,
+    }
+
+    return render(request, template, context)
+
+
+def edit_album(request, album_id):
+    """ Edit an album in the store """
+    album = get_object_or_404(Album, pk=album_id)
+    if request.method == 'POST':
+        form = AlbumForm(request.POST, request.FILES, instance=album)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated album!')
+            return redirect(reverse('album_detail', args=[album.id]))
+        else:
+            messages.error(request, 'Failed to update album. Please ensure the form is valid.')
+    else:
+        form = AlbumForm(instance=album)
+        messages.info(request, f'You are editing {album.name}')
+
+    template = 'products/edit_album.html'
+    context = {
+        'form': form,
+        'album': album,
+    }
+
+    return render(request, template, context)
+
+
+def edit_artist(request, artist_id):
+    """ Edit an artist in the store """
+    artist = get_object_or_404(Album, pk=artist_id)
+    if request.method == 'POST':
+        form = ArtistForm(request.POST, request.FILES, instance=artist)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully updated album!')
+            return redirect(reverse('artist_detail', args=[artist.id]))
+        else:
+            messages.error(request, 'Failed to update artist. Please ensure the form is valid.')
+    else:
+        form = ArtistForm(instance=artist)
+        messages.info(request, f'You are editing {artist.name}')
+
+    template = 'products/edit_artist.html'
+    context = {
+        'form': form,
+        'artist': artist,
     }
 
     return render(request, template, context)
