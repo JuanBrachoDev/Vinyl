@@ -19,10 +19,8 @@
                         <a href="{{ album.image.url }}" target="_blank">
                             <img class="album-detail-cover-mobile card-img-top img-fluid" src="{{ album.image.url }}" alt="{{ album.name }}">
                         </a>
-                        {% else %}
-                        <a href="{{ album.image.url }}" target="_blank">
-                            <img class="album-detail-cover-mobile card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ album.name }}">
-                        </a>
+                    {% else %}
+                        <img class="album-detail-cover-mobile card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ album.name }}">
                     {% endif %}
                 </div>
             </div>

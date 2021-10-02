@@ -103,7 +103,17 @@ def artist_detail(request, artist_id):
 
 def add_album(request):
     """ Add an album to the store """
-    form = AlbumForm()
+    if request.method == 'POST':
+        form = AlbumForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added album!')
+            return redirect(reverse('add_album'))
+        else:
+            messages.error(request, 'Failed to add album. Please ensure the form is valid.')
+    else:
+        form = AlbumForm()
+
     template = 'products/add_album.html'
     context = {
         'form': form,
@@ -114,7 +124,17 @@ def add_album(request):
 
 def add_artist(request):
     """ Add an artist to the store """
-    form = ArtistForm()
+    if request.method == 'POST':
+        form = ArtistForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added artist!')
+            return redirect(reverse('add_artist'))
+        else:
+            messages.error(request, 'Failed to add artist. Please ensure the form is valid.')
+    else:
+        form = ArtistForm()
+        
     template = 'products/add_artist.html'
     context = {
         'form': form,
