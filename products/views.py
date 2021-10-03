@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 
@@ -101,8 +102,13 @@ def artist_detail(request, artist_id):
     return render(request, 'products/artist_detail.html', context)
 
 
+@login_required
 def add_album(request):
     """ Add an album to the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
     if request.method == 'POST':
         form = AlbumForm(request.POST, request.FILES)
         if form.is_valid():
@@ -122,8 +128,13 @@ def add_album(request):
     return render(request, template, context)
 
 
+@login_required
 def add_artist(request):
     """ Add an artist to the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
     if request.method == 'POST':
         form = ArtistForm(request.POST, request.FILES)
         if form.is_valid():
@@ -143,8 +154,13 @@ def add_artist(request):
     return render(request, template, context)
 
 
+@login_required
 def edit_album(request, album_id):
     """ Edit an album in the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
     album = get_object_or_404(Album, pk=album_id)
     if request.method == 'POST':
         form = AlbumForm(request.POST, request.FILES, instance=album)
@@ -167,8 +183,13 @@ def edit_album(request, album_id):
     return render(request, template, context)
 
 
+@login_required
 def edit_artist(request, artist_id):
     """ Edit an artist in the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
     artist = get_object_or_404(Artist, pk=artist_id)
     if request.method == 'POST':
         form = ArtistForm(request.POST, request.FILES, instance=artist)
@@ -191,16 +212,26 @@ def edit_artist(request, artist_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_album(request, album_id):
     """ Delete an album from the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+    
     album = get_object_or_404(Album, pk=album_id)
     album.delete()
     messages.success(request, 'Album deleted!')
     return redirect(reverse('albums'))
 
 
+@login_required
 def delete_artist(request, artist_id):
     """ Delete an artist from the store """
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
     artist = get_object_or_404(Artist, pk=artist_id)
     artist.delete()
     messages.success(request, 'Artist deleted!')
