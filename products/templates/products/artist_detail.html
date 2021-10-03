@@ -15,15 +15,19 @@
         <div class="row">
             <div class="col-12 col-md-6 col-lg-4 offset-md-3 offset-lg-4">
                 <p class="mb-0 text-center">{{ artist.name }}</p>
+                {% if request.user.is_superuser %}
+                    <small>
+                        <a href="{% url 'edit_artist' artist.id %}">Edit</a> | 
+                        <a class="text-danger" href="{% url 'delete_artist' artist.id %}">Delete</a>
+                    </small>
+                {% endif %}
                 <div class="image-container my-5">
                     {% if artist.image %}
                         <a href="{{ artist.image.url }}" target="_blank">
                             <img class="card-img-top img-fluid" src="{{ artist.image.url }}" alt="{{ artist.name }}">
                         </a>
-                        {% else %}
-                        <a href="{{ artist.image.url }}" target="_blank">
-                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ artist.name }}">
-                        </a>
+                    {% else %}
+                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ artist.name }}">
                     {% endif %}
                 </div>
             </div>
@@ -62,6 +66,7 @@
                                     <p class="mb-0 mt-0">by Independent Artist</p>
                                 </div>
                             {% endif %}
+
                             <div class="card-body pb-0 pt-0">
                                 <i class="fa fa-tags" aria-hidden="true"></i><a href="{% url 'albums' %}?genre={{ album.genre }}" class="mb-0 mt-0"> {{ album.genre }}</a>
                             </div>

@@ -53,6 +53,12 @@
                             <small class="text-muted">No Rating</small>
                         </div>
                     {% endif %}
+                    {% if request.user.is_superuser %}
+                        <small>
+                            <a href="{% url 'edit_album' album.id %}">Edit</a> | 
+                            <a class="text-danger" href="{% url 'delete_album' album.id %}">Delete</a>
+                        </small>
+                    {% endif %}
                     <form class="form" action="{% url 'add_to_cart' album.id %}" method="POST">
                         {% csrf_token %}
                         <div class="form-row">

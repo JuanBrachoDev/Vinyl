@@ -106,9 +106,9 @@ def add_album(request):
     if request.method == 'POST':
         form = AlbumForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            album = form.save()
             messages.success(request, 'Successfully added album!')
-            return redirect(reverse('add_album'))
+            return redirect(reverse('album_detail', args=[album.id]))
         else:
             messages.error(request, 'Failed to add album. Please ensure the form is valid.')
     else:
@@ -127,9 +127,9 @@ def add_artist(request):
     if request.method == 'POST':
         form = ArtistForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            artist = form.save()
             messages.success(request, 'Successfully added artist!')
-            return redirect(reverse('add_artist'))
+            return redirect(reverse('artist_detail', args=[artist.id]))
         else:
             messages.error(request, 'Failed to add artist. Please ensure the form is valid.')
     else:
@@ -169,7 +169,7 @@ def edit_album(request, album_id):
 
 def edit_artist(request, artist_id):
     """ Edit an artist in the store """
-    artist = get_object_or_404(Album, pk=artist_id)
+    artist = get_object_or_404(Artist, pk=artist_id)
     if request.method == 'POST':
         form = ArtistForm(request.POST, request.FILES, instance=artist)
         if form.is_valid():
@@ -189,3 +189,19 @@ def edit_artist(request, artist_id):
     }
 
     return render(request, template, context)
+
+
+def delete_album(request, album_id):
+    """ Delete an album from the store """
+    album = get_object_or_404(Album, pk=album_id)
+    album.delete()
+    messages.success(request, 'Album deleted!')
+    return redirect(reverse('albums'))
+
+
+def delete_artist(request, artist_id):
+    """ Delete an artist from the store """
+    artist = get_object_or_404(Artist, pk=artist_id)
+    artist.delete()
+    messages.success(request, 'Artist deleted!')
+    return redirect(reverse('artists'))
