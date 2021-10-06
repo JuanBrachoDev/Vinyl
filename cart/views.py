@@ -59,11 +59,14 @@ def remove_from_cart(request, item_id):
     try:
         cart = request.session.get('cart', {})
         album = get_object_or_404(Album, pk=item_id)
-        cart.pop(item_id)
-        messages.success(request, f'Removed {album.name} from your cart.')
+        if album:
+            cart.pop(item_id)
+            messages.success(request, f'Removed {album.name} from your cart.')
 
-        request.session['cart'] = cart
-        return HttpResponse(status=200)
+            request.session['cart'] = cart
+            return HttpResponse(status=200)
+        else:
+            return HttpResponse(status=404)
 
     except Exception as e:
         messages.error(request, f'Error removing item: {e}')

@@ -12,6 +12,8 @@ class AlbumAdmin(admin.ModelAdmin):
         'rating',
         'spotify_link',
         'image',
+        'special_offer_category',
+        'special_offer_price',
     )
 
     ordering = ('name',)
@@ -21,8 +23,8 @@ class AlbumAdmin(admin.ModelAdmin):
 class ArtistAdmin(admin.ModelAdmin):
     list_display = (
         'name',
-        'description',
-        'image'
+        'image',
+        'is_featured_artist',
     )
 
     ordering = ('name',)
