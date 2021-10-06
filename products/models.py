@@ -24,9 +24,8 @@ class Artist(models.Model):
         verbose_name_plural = 'Artists'
 
     name = models.CharField(max_length=254)
-    description = models.TextField()
-    image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(upload_to=get_artist_upload_path, null=True, blank=True)
+    is_featured_artist = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
@@ -44,8 +43,17 @@ class Album(models.Model):
     spotify_link = models.CharField(max_length=254)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
-    image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(upload_to=get_album_upload_path, null=True, blank=True)
+
+    offers = (
+        ('no_offer', 'No Offer'),
+        ('new_arrival', 'New Arrival'),
+        ('deal', 'Deal'),
+        ('clearance', 'Clearance'),
+    )
+
+    special_offer_category = models.CharField(max_length=254, choices=offers, default='no_offer')
+    special_offer_price = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
 
     def __str__(self):
         return self.name
