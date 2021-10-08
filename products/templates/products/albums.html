@@ -75,15 +75,20 @@
                                 </div>
                                 <div class="card-footer bg-white pt-0 border-0 text-left">
                                     <div class="row">
-                                        <div class="col">
-                                            <p class="lead mb-0 text-left font-weight-bold">${{ album.price }}</p>
-                                            {% if album.rating %}
-                                                <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ album.rating }} / 5</small>
+                                        <div class="col-12">
+                                            {% if album.special_offer_category == "deal" or album.special_offer_category == "clearance" %}
+                                                <small class="text-left text-muted"><s>€{{ album.price }}</s></small>
+                                                <p class="lead mt-0 mb-0 text-left font-weight-bold">€{{ album.special_offer_price }}</p>
                                             {% else %}
-                                                <small class="text-muted">No Rating</small>
+                                                <p class="lead mt-0 mb-0 text-left font-weight-bold">€{{ album.price }}</p>
+                                            {% endif %}
+                                            {% if album.rating %}
+                                                <p class="mb-0"><small class="text-muted"><i class="fas fa-star mr-1"></i>{{ album.rating }} / 5</small></p>
+                                            {% else %}
+                                                <p class="mb-0"><small class="text-muted">No Rating</small></p>
                                             {% endif %}
                                             {% if request.user.is_superuser %}
-                                                <small>
+                                                <small class="mb-0 text-left">
                                                     <a href="{% url 'edit_album' album.id %}">Edit</a> | 
                                                     <a class="text-danger" href="{% url 'delete_album' album.id %}">Delete</a>
                                                 </small>
