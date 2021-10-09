@@ -14,12 +14,10 @@
     <div class="container-fluid">
         <!-- Deals -->
         {% if deals %}
-            <div class="row">
-                <div class="col text-center mt-3">
-                    <h2 class="logo-font">Latest Deals</h2>
+            <div class="row deals-section home-page-section">
+                <div class="col-12 text-center mt-3">
+                    <h1 class="logo-font section-header">Latest Deals</h1>
                 </div>
-            </div>
-            <div class="row">
                 {% for deal in deals %}
                     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                         <div class="card h-100 border-0">
@@ -49,7 +47,7 @@
                             <div class="card-body pb-0 pt-0">
                                 <i class="fa fa-tags" aria-hidden="true"></i><a href="{% url 'albums' %}?genre={{ deal.genre }}" class="mb-0 mt-0"> {{ deal.genre }}</a>
                             </div>
-                            <div class="card-footer bg-white pt-0 border-0 text-left">
+                            <div class="card-footer pt-0 border-0 text-left">
                                 <div class="row">
                                     <div class="col-12">
                                         <small class="text-left text-muted"><s>€{{ deal.price }}</s></small>
@@ -72,36 +70,34 @@
                     </div>
                     {% if forloop.counter|divisibleby:1 %}
                         <div class="col-12 d-sm-none mb-5">
-                            <hr>
+                            <hr class="border-0">
                         </div>
                     {% endif %}                        
                     {% if forloop.counter|divisibleby:2 %}
                         <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-                            <hr>
+                            <hr class="border-0">
                         </div>
                     {% endif %}
                     {% if forloop.counter|divisibleby:3 %}
                         <div class="col-12 d-none d-lg-block d-xl-none mb-5">
-                            <hr>
+                            <hr class="border-0">
                         </div>
                     {% endif %}
                     {% if forloop.counter|divisibleby:4 %}
                         <div class="col-12 d-none d-xl-block mb-5">
-                            <hr>
+                            <hr class="border-0">
                         </div>
                     {% endif %}
                 {% endfor %}
             </div>
-            <hr class="mb-1">
+            <hr class="mb-1 mt-1">
         {% endif %}
         <!-- New Arrivals -->
-        {% if new_arrivals %}
-            <div class="row">
-                <div class="col text-center mt-3">
-                    <h2 class="logo-font">New Arrivals</h2>
-                </div>
-            </div>
-            <div class="row">
+        {% if new_arrivals %}         
+            <div class="row arrivals-section home-page-section">
+                    <div class="col-12 text-center mt-3">
+                        <h1 class="logo-font section-header">New Arrivals</h1>
+                    </div>
                 {% for new_arrival in new_arrivals %}
                     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                         <div class="card h-100 border-0">
@@ -131,7 +127,7 @@
                             <div class="card-body pb-0 pt-0">
                                 <i class="fa fa-tags" aria-hidden="true"></i><a href="{% url 'albums' %}?genre={{ new_arrival.genre }}" class="mb-0 mt-0"> {{ new_arrival.genre }}</a>
                             </div>
-                            <div class="card-footer bg-white pt-0 border-0 text-left">
+                            <div class="card-footer pt-0 border-0 text-left">
                                 <div class="row">
                                     <div class="col-12">
                                         <p class="lead mt-0 mb-0 text-left font-weight-bold">€{{ new_arrival.price }}</p>
@@ -153,36 +149,34 @@
                     </div>
                     {% if forloop.counter|divisibleby:1 %}
                         <div class="col-12 d-sm-none mb-5">
-                            <hr>
+                            <hr class="border-0">
                         </div>
                     {% endif %}                        
                     {% if forloop.counter|divisibleby:2 %}
                         <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-                            <hr>
+                            <hr class="border-0">
                         </div>
                     {% endif %}
                     {% if forloop.counter|divisibleby:3 %}
                         <div class="col-12 d-none d-lg-block d-xl-none mb-5">
-                            <hr>
+                            <hr class="border-0">
                         </div>
                     {% endif %}
                     {% if forloop.counter|divisibleby:4 %}
                         <div class="col-12 d-none d-xl-block mb-5">
-                            <hr>
+                            <hr class="border-0">
                         </div>
                     {% endif %}
                 {% endfor %}
             </div>
-            <hr class="mb-1">
+            <hr class="mb-1 mt-1">
         {% endif %}
         <!-- Clearance -->
         {% if clearances %}
-            <div class="row">
-                <div class="col text-center mt-3">
-                    <h2 class="logo-font">Clearance</h2>
+            <div class="row clearance-section home-page-section">
+                <div class="col-12 text-center mt-3">
+                    <h1 class="logo-font section-header">Clearance</h1>
                 </div>
-            </div>
-            <div class="row">
                 {% for clearance in clearances %}
                     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                         <div class="card h-100 border-0">
@@ -212,7 +206,7 @@
                             <div class="card-body pb-0 pt-0">
                                 <i class="fa fa-tags" aria-hidden="true"></i><a href="{% url 'albums' %}?genre={{ clearance.genre }}" class="mb-0 mt-0"> {{ clearance.genre }}</a>
                             </div>
-                            <div class="card-footer bg-white pt-0 border-0 text-left">
+                            <div class="card-footer pt-0 border-0 text-left">
                                 <div class="row">
                                     <div class="col-12">
                                         <small class="text-left text-muted"><s>€{{ clearance.price }}</s></small>
@@ -235,36 +229,34 @@
                     </div>
                     {% if forloop.counter|divisibleby:1 %}
                         <div class="col-12 d-sm-none mb-5">
-                            <hr>
+                            <hr class="border-0">
                         </div>
                     {% endif %}                        
                     {% if forloop.counter|divisibleby:2 %}
                         <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-                            <hr>
+                            <hr class="border-0">
                         </div>
                     {% endif %}
                     {% if forloop.counter|divisibleby:3 %}
                         <div class="col-12 d-none d-lg-block d-xl-none mb-5">
-                            <hr>
+                            <hr class="border-0">
                         </div>
                     {% endif %}
                     {% if forloop.counter|divisibleby:4 %}
                         <div class="col-12 d-none d-xl-block mb-5">
-                            <hr>
+                            <hr class="border-0">
                         </div>
                     {% endif %}
                 {% endfor %}
             </div>
-            <hr class="mb-1">
+            <hr class="mb-1 mt-1">
         {% endif %}
         <!-- Featured Artists -->
         {% if featured_artists %}
-            <div class="row">
-                <div class="col text-center mt-3">
-                    <h2 class="logo-font">Featured Artists</h2>
+            <div class="row artist-section home-page-section">
+                <div class="col-12 text-center mt-3">
+                    <h1 class="logo-font section-header">Featured Artists</h1>
                 </div>
-            </div>
-            <div class="row">
                 {% for featured_artist in featured_artists %}
                     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                         <div class="card h-100 border-0">
@@ -283,44 +275,44 @@
                                 </div>
                             {% endif %}
                             {% if request.user.is_superuser %}
-                                <small>
-                                    <a href="{% url 'edit_artist' featured_artist.id %}">Edit</a> | 
-                                    <a class="text-danger" href="{% url 'delete_artist' featured_artist.id %}">Delete</a>
-                                </small>
+                                <div class="card-footer pt-0 border-0 text-left">
+                                    <small>
+                                        <a href="{% url 'edit_artist' featured_artist.id %}">Edit</a> | 
+                                        <a class="text-danger" href="{% url 'delete_artist' featured_artist.id %}">Delete</a>
+                                    </small>
+                                </div>
                             {% endif %}
                         </div>
                     </div>
                     {% if forloop.counter|divisibleby:1 %}
                         <div class="col-12 d-sm-none mb-5">
-                            <hr>
+                            <hr class="border-0">
                         </div>
                     {% endif %}                        
                     {% if forloop.counter|divisibleby:2 %}
                         <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-                            <hr>
+                            <hr class="border-0">
                         </div>
                     {% endif %}
                     {% if forloop.counter|divisibleby:3 %}
                         <div class="col-12 d-none d-lg-block d-xl-none mb-5">
-                            <hr>
+                            <hr class="border-0">
                         </div>
                     {% endif %}
                     {% if forloop.counter|divisibleby:4 %}
                         <div class="col-12 d-none d-xl-block mb-5">
-                            <hr>
+                            <hr class="border-0">
                         </div>
                     {% endif %}
                 {% endfor %}
             </div>
-            <hr class="mb-1">
+            <hr class="mb-1 mt-1">
         {% endif %}
         <!-- All Albums -->
-        <div class="row">
-            <div class="col text-center mt-3">
-                <h2 class="logo-font">All Albums</h2>
+        <div class="row home-page-section">
+            <div class="col-12 text-center mt-3">
+                <h1 class="logo-font section-header">All Albums</h1>
             </div>
-        </div>
-        <div class="row">
             {% for album in albums %}
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                     <div class="card h-100 border-0">
@@ -350,7 +342,7 @@
                         <div class="card-body pb-0 pt-0">
                             <i class="fa fa-tags" aria-hidden="true"></i><a href="{% url 'albums' %}?genre={{ album.genre }}" class="mb-0 mt-0"> {{ album.genre }}</a>
                         </div>
-                        <div class="card-footer bg-white pt-0 border-0 text-left">
+                        <div class="card-footer pt-0 border-0 text-left">
                             <div class="row">
                                 <div class="col-12">
                                     <p class="lead mt-0 mb-0 text-left font-weight-bold">€{{ album.price }}</p>
@@ -372,27 +364,28 @@
                 </div>
                 {% if forloop.counter|divisibleby:1 %}
                     <div class="col-12 d-sm-none mb-5">
-                        <hr>
+                        <hr class="product-separator">
                     </div>
                 {% endif %}                        
                 {% if forloop.counter|divisibleby:2 %}
                     <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-                        <hr>
+                        <hr class="product-separator">
                     </div>
                 {% endif %}
                 {% if forloop.counter|divisibleby:3 %}
                     <div class="col-12 d-none d-lg-block d-xl-none mb-5">
-                        <hr>
+                        <hr class="product-separator">
                     </div>
                 {% endif %}
                 {% if forloop.counter|divisibleby:4 %}
                     <div class="col-12 d-none d-xl-block mb-5">
-                        <hr>
+                        <hr class="product-separator">
                     </div>
                 {% endif %}
             {% endfor %}
         </div>          
     </div>
+    <!-- Back to Top Button -->
     <div class="btt-button shadow-sm rounded-0 border border-black">
         <a class="btt-link d-flex h-100">
             <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>

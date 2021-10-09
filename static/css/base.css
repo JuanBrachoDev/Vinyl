@@ -2,8 +2,31 @@
 
 body { 
     font-family: 'Righteous', cursive;
-    background: url('/media/background.png') repeat;
+    background: url('/media/background2.png') repeat;
     color: black;
+}
+
+.product-separator {
+    border: 2px inset #FF44CC;
+    border-radius: 2px;
+    animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+      box-shadow: 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #e60073, 0 0 25px #e60073, 0 0 30px #e60073, 0 0 35px #e60073, 0 0 40px #e60073;
+    }
+    to {
+      box-shadow: 0 0 10px #fff, 0 0 15px #ff4da6, 0 0 20px #ff4da6, 0 0 25px #ff4da6, 0 0 30px #ff4da6, 0 0 35px #ff4da6, 0 0 40px #ff4da6;
+    }
+  }
+
+.card {
+    background-image: url("/media/background.png");
+}
+
+.card-footer {
+    background-color: transparent;
 }
 
 
@@ -111,6 +134,40 @@ hr {
 .navbar a {
     color: #2e1155;
 }
+
+/* ------------------------------- Home */
+
+.section-header {
+    color: white;
+    text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000;
+}
+
+.home-page-section {
+    min-height: 500px; 
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.deals-section {
+    background-image: url("/media/deals-parallax.jpeg");
+  }
+
+  .clearance-section {
+    background-image: url("/media/clearance-parallax.jpeg");
+  }
+
+  .arrivals-section {
+    background-image: url("/media/arrivals-parallax.jpeg");
+  }
+
+  .artist-section {
+    background-image: url("/media/artist-parallax.jpeg");
+    min-height: 200px; 
+  }
 
 
 /* ------------------------------- Album detail */
