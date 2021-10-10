@@ -29,6 +29,21 @@ body {
     background-color: transparent;
 }
 
+.btt-button {
+    border: 2px solid black;
+    border-radius: 25px;
+    background-color: #FF44CC;
+    height: 40px;
+    width: 40px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.btt-button {
+    cursor: pointer;
+}
+
 
 /* ------------------------------- Navbar */ 
 
@@ -137,9 +152,19 @@ hr {
 
 /* ------------------------------- Home */
 
+.about-us-text {
+    color: white;
+}
+
+.lower-text-ornament{
+    transform: rotate(180deg);
+    color: violet;
+}
+
 .section-header {
     color: white;
     text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000;
+    margin-bottom: 40px;
 }
 
 .home-page-section {

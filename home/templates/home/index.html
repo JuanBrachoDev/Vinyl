@@ -12,6 +12,18 @@
 {% block content %}
     <div class="overlay"></div>
     <div class="container-fluid">
+        <!-- About Us -->
+        <div class="row">
+            <div class="col-12 text-center mt-3">
+                <h1 class="logo-font section-header">Who are we?</h1>
+            </div>  
+            <div class="col-12 col-md-8 offset-md-2 col-lg-4 offset-lg-4">
+                <img class="upper-text-ornament img-fluid" src="{{ MEDIA_URL }}text-ornament.png" alt="Upper Text Ornament">
+                <p class="text-center pl-5 pr-5 mb-0 about-us-text">We are the biggest vinyl records retailer in Ireland, providing our customers with the best audio quality from simpler times.</p>
+                <img class="lower-text-ornament img-fluid" src="{{ MEDIA_URL }}text-ornament.png" alt="Lower Text Ornament">   
+                
+            </div>
+        </div>
         <!-- Deals -->
         {% if deals %}
             <div class="row deals-section home-page-section">
@@ -19,7 +31,7 @@
                     <h1 class="logo-font section-header">Latest Deals</h1>
                 </div>
                 {% for deal in deals %}
-                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                    <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3 offset-lg-2 offset-xl-0">
                         <div class="card h-100 border-0">
                             {% if deal.image %}
                                 <a href="{% url 'album_detail' deal.id %}">
@@ -68,24 +80,25 @@
                             </div>
                         </div>
                     </div>
-                    {% if forloop.counter|divisibleby:1 %}
-                        <div class="col-12 d-sm-none mb-5">
-                            <hr class="border-0">
+                    {% if deals.count == 1 %}
+                        <div class="col-12 col-sm-8 col-lg-6 offset-sm-2 offset-lg-3">
+                            <hr class="product-separator">
                         </div>
-                    {% endif %}                        
+                    {% else %}
+                        {% if forloop.counter|divisibleby:1 %}
+                            <div class="col-12 d-sm-none mb-5">
+                                <hr class="product-separator">
+                            </div>
+                        {% endif %}
+                    {% endif %}                      
                     {% if forloop.counter|divisibleby:2 %}
-                        <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-                            <hr class="border-0">
-                        </div>
-                    {% endif %}
-                    {% if forloop.counter|divisibleby:3 %}
-                        <div class="col-12 d-none d-lg-block d-xl-none mb-5">
-                            <hr class="border-0">
+                        <div class="col-12 d-none d-sm-block col-lg-10 offset-lg-1 d-xl-none mb-5">
+                            <hr class="product-separator">
                         </div>
                     {% endif %}
                     {% if forloop.counter|divisibleby:4 %}
                         <div class="col-12 d-none d-xl-block mb-5">
-                            <hr class="border-0">
+                            <hr class="product-separator">
                         </div>
                     {% endif %}
                 {% endfor %}
@@ -99,7 +112,7 @@
                         <h1 class="logo-font section-header">New Arrivals</h1>
                     </div>
                 {% for new_arrival in new_arrivals %}
-                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                    <div class="col-sm-6 col-md-6 col-xl-3 offset-xl-2">
                         <div class="card h-100 border-0">
                             {% if new_arrival.image %}
                                 <a href="{% url 'album_detail' new_arrival.id %}">
@@ -149,22 +162,12 @@
                     </div>
                     {% if forloop.counter|divisibleby:1 %}
                         <div class="col-12 d-sm-none mb-5">
-                            <hr class="border-0">
+                            <hr class="product-separator">
                         </div>
                     {% endif %}                        
                     {% if forloop.counter|divisibleby:2 %}
-                        <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-                            <hr class="border-0">
-                        </div>
-                    {% endif %}
-                    {% if forloop.counter|divisibleby:3 %}
-                        <div class="col-12 d-none d-lg-block d-xl-none mb-5">
-                            <hr class="border-0">
-                        </div>
-                    {% endif %}
-                    {% if forloop.counter|divisibleby:4 %}
-                        <div class="col-12 d-none d-xl-block mb-5">
-                            <hr class="border-0">
+                        <div class="col-12 col-xl-10 d-none d-sm-block offset-xl-1 mb-5">
+                            <hr class="product-separator">
                         </div>
                     {% endif %}
                 {% endfor %}
@@ -178,7 +181,7 @@
                     <h1 class="logo-font section-header">Clearance</h1>
                 </div>
                 {% for clearance in clearances %}
-                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                    <div class="col-sm-6 col-md-6 col-xl-3 offset-xl-2">
                         <div class="card h-100 border-0">
                             {% if clearance.image %}
                                 <a href="{% url 'album_detail' clearance.id %}">
@@ -229,22 +232,12 @@
                     </div>
                     {% if forloop.counter|divisibleby:1 %}
                         <div class="col-12 d-sm-none mb-5">
-                            <hr class="border-0">
+                            <hr class="product-separator">
                         </div>
                     {% endif %}                        
                     {% if forloop.counter|divisibleby:2 %}
-                        <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-                            <hr class="border-0">
-                        </div>
-                    {% endif %}
-                    {% if forloop.counter|divisibleby:3 %}
-                        <div class="col-12 d-none d-lg-block d-xl-none mb-5">
-                            <hr class="border-0">
-                        </div>
-                    {% endif %}
-                    {% if forloop.counter|divisibleby:4 %}
-                        <div class="col-12 d-none d-xl-block mb-5">
-                            <hr class="border-0">
+                        <div class="col-12 col-xl-10 d-none d-sm-block offset-xl-1 mb-5">
+                            <hr class="product-separator">
                         </div>
                     {% endif %}
                 {% endfor %}
@@ -252,57 +245,115 @@
             <hr class="mb-1 mt-1">
         {% endif %}
         <!-- Featured Artists -->
-        {% if featured_artists %}
+        {% if featured_artist %}
             <div class="row artist-section home-page-section">
                 <div class="col-12 text-center mt-3">
-                    <h1 class="logo-font section-header">Featured Artists</h1>
+                    <h1 class="logo-font section-header">Featured Artist</h1>
                 </div>
-                {% for featured_artist in featured_artists %}
-                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                        <div class="card h-100 border-0">
-                            {% if featured_artist.image %}
-                                <a href="{% url 'artist_detail' featured_artist.id %}">
-                                    <img class="card-img-top img-fluid" src="{{ featured_artist.image.url }}" alt="{{ featured_artist.name }}">
+                {% for featured in featured_artist %}
+                    <div class="col-12 col-sm-6 col-md-6 col-lg-4 offset-sm-3 offset-lg-4">
+                        <div class="card h-100 border-0 artist-card">
+                            {% if featured.image %}
+                                <a class="artist-image" href="{% url 'artist_detail' featured.id %}">
+                                    <img class="card-img-top img-fluid" src="{{ featured.image.url }}" alt="{{ featured.name }}">
                                 </a>
                             {% else %}
-                                <a href="{% url 'artist_detail' featured_artist.id %}">
-                                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ featured_artist.name }}">
+                                <a class="artist-image" href="{% url 'artist_detail' featured.id %}">
+                                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ featured.name }}">
                                 </a>
                             {% endif %}
-                            {% if featured_artist.name %}
+                            {% if featured.name %}
                                 <div class="card-body pb-0">
-                                    <a href="{% url 'artist_detail' featured_artist.id %}" class="mb-0">{{ featured_artist.name }}</a>
+                                    <a href="{% url 'artist_detail' featured.id %}" class="mb-0">{{ featured.name }}</a>
                                 </div>
                             {% endif %}
                             {% if request.user.is_superuser %}
                                 <div class="card-footer pt-0 border-0 text-left">
                                     <small>
-                                        <a href="{% url 'edit_artist' featured_artist.id %}">Edit</a> | 
-                                        <a class="text-danger" href="{% url 'delete_artist' featured_artist.id %}">Delete</a>
+                                        <a href="{% url 'edit_artist' featured.id %}">Edit</a> | 
+                                        <a class="text-danger" href="{% url 'delete_artist' featured.id %}">Delete</a>
                                     </small>
                                 </div>
                             {% endif %}
                         </div>
                     </div>
-                    {% if forloop.counter|divisibleby:1 %}
-                        <div class="col-12 d-sm-none mb-5">
-                            <hr class="border-0">
-                        </div>
-                    {% endif %}                        
-                    {% if forloop.counter|divisibleby:2 %}
-                        <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-5">
-                            <hr class="border-0">
-                        </div>
-                    {% endif %}
-                    {% if forloop.counter|divisibleby:3 %}
-                        <div class="col-12 d-none d-lg-block d-xl-none mb-5">
-                            <hr class="border-0">
-                        </div>
-                    {% endif %}
-                    {% if forloop.counter|divisibleby:4 %}
-                        <div class="col-12 d-none d-xl-block mb-5">
-                            <hr class="border-0">
-                        </div>
+                    <hr class="border-0 col-12">
+                    {% if featured_artist_albums %}
+                        {% for album in featured_artist_albums %}
+                            {% if featured_artist_albums.count > 1 %}
+                                <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3 offset-lg-2 offset-xl-0">
+                            {% else %}
+                                <div class="col-12 col-sm-6 col-md-6 col-lg-4 offset-sm-3 offset-lg-4">
+                            {% endif %}
+                                <div class="card h-100 border-0">
+                                    {% if album.image %}
+                                        <a href="{% url 'album_detail' album.id %}">
+                                            <img class="card-img-top img-fluid" src="{{ album.image.url }}" alt="{{ album.name }}">
+                                        </a>
+                                    {% else %}
+                                        <a href="{% url 'album_detail' album.id %}">
+                                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ album.name }}">
+                                        </a>
+                                    {% endif %}
+                                    {% if album.name %}
+                                        <div class="card-body pb-0">
+                                            <a href="{% url 'album_detail' album.id %}" class="mb-0">{{ album.name }}</a>
+                                        </div>
+                                    {% endif %}
+                                    {% if album.artist %}
+                                        <div class="card-body pb-0 pt-0">
+                                            by <a href="{% url 'artist_detail' album.artist.id %}" class="mb-0 mt-0">{{ album.artist }}</a>
+                                        </div>
+                                    {% else %}
+                                        <div class="card-body pb-0 pt-0">
+                                            <p class="mb-0 mt-0">by Independent Artist</p>
+                                        </div>
+                                    {% endif %}
+                                    <div class="card-body pb-0 pt-0">
+                                        <i class="fa fa-tags" aria-hidden="true"></i><a href="{% url 'albums' %}?genre={{ album.genre }}" class="mb-0 mt-0"> {{ album.genre }}</a>
+                                    </div>
+                                    <div class="card-footer pt-0 border-0 text-left">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <p class="lead mt-0 mb-0 text-left font-weight-bold">€{{ album.price }}</p>
+                                                {% if album.rating %}
+                                                    <p class="mb-0"><small class="text-muted"><i class="fas fa-star mr-1"></i>{{ album.rating }} / 5</small></p>
+                                                {% else %}
+                                                    <p class="mb-0"><small class="text-muted">No Rating</small></p>
+                                                {% endif %}
+                                                {% if request.user.is_superuser %}
+                                                    <small class="mb-0 text-left">
+                                                        <a href="{% url 'edit_album' album.id %}">Edit</a> | 
+                                                        <a class="text-danger" href="{% url 'delete_album' album.id %}">Delete</a>
+                                                    </small>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% if featured_artist_albums.count == 1 %}
+                                <div class="col-12 col-sm-8 col-lg-6 offset-sm-2 offset-lg-3">
+                                    <hr class="product-separator">
+                                </div>
+                            {% else %}
+                                {% if forloop.counter|divisibleby:1 %}
+                                    <div class="col-12 d-sm-none mb-5">
+                                        <hr class="product-separator">
+                                    </div>
+                                {% endif %}
+                            {% endif %}                      
+                            {% if forloop.counter|divisibleby:2 %}
+                                <div class="col-12 d-none d-sm-block col-lg-10 offset-lg-1 d-xl-none mb-5">
+                                    <hr class="product-separator">
+                                </div>
+                            {% endif %}
+                            {% if forloop.counter|divisibleby:4 %}
+                                <div class="col-12 d-none d-xl-block mb-5">
+                                    <hr class="product-separator">
+                                </div>
+                            {% endif %}
+                        {% endfor %}
                     {% endif %}
                 {% endfor %}
             </div>
@@ -386,7 +437,7 @@
         </div>          
     </div>
     <!-- Back to Top Button -->
-    <div class="btt-button shadow-sm rounded-0 border border-black">
+    <div class="btt-button shadow-sm">
         <a class="btt-link d-flex h-100">
             <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
         </a>	

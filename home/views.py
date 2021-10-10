@@ -13,7 +13,9 @@ def index(request):
     albums = all_albums.order_by('name')
 
     all_featured_artists = Artist.objects.filter(is_featured_artist=True)
-    featured_artists = all_featured_artists.order_by('?')[:2]
+    featured_artist_id = all_featured_artists.order_by('?')[:1][0].id
+    featured_artist = all_featured_artists.filter(id=featured_artist_id)
+    featured_artist_albums = all_albums.filter(artist=featured_artist_id).order_by('?')[:4]
 
     new_arrivals = all_albums.filter(special_offer_category='new_arrival').order_by('?')[:2]
 
@@ -23,7 +25,8 @@ def index(request):
 
     context = {
         'albums': albums,
-        'featured_artists': featured_artists,
+        'featured_artist': featured_artist,
+        'featured_artist_albums': featured_artist_albums,
         'new_arrivals': new_arrivals,
         'deals': deals,
         'clearances': clearances,
