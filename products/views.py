@@ -11,7 +11,7 @@ from .forms import AlbumForm, ArtistForm
 def all_albums(request):
     """ A view to show all albums, including sorting and search queries """
 
-    albums = Album.objects.all()
+    albums = Album.objects.all().order_by('name')
     query = None
     sort = None
     direction = None

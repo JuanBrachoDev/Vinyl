@@ -304,8 +304,10 @@ hr {
         padding-left: 8px;
         padding-right: 8px; 
     }
+}
 
-    .dropdown-menu {
-        left: -30px;
+@media (max-width: 300px) {
+    .navbar-toggler {
+        padding: 0px 6px;
     }
 }

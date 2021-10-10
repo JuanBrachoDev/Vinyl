@@ -42,7 +42,7 @@
                         <i class="fa fa-tags" aria-hidden="true"></i><a href="{% url 'albums' %}?genre={{ album.genre }}" class="mb-0 mt-0"> {{ album.genre }}</a>
                     </div>
                     <div class="card-body p-0">
-                        <p class="lead mb-0 text-left font-weight-bold text-center text-md-left">${{ album.price }}</p>
+                        <p class="lead mb-0 text-left font-weight-bold text-center text-md-left">€{{ album.price }}</p>
                     </div>
                     {% if album.rating %}
                         <div class="card-body p-0 text-center text-md-left">
