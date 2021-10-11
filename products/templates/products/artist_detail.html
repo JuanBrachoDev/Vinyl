@@ -70,15 +70,28 @@
                             <div class="card-body pb-0 pt-0">
                                 <i class="fa fa-tags" aria-hidden="true"></i><a href="{% url 'albums' %}?genre={{ album.genre }}" class="mb-0 mt-0"> {{ album.genre }}</a>
                             </div>
-                            <div class="card-footer bg-white pt-0 border-0 text-left">
+                            <div class="card-footer pt-0 border-0 text-left">
                                 <div class="row">
-                                    <div class="col">
-                                        <p class="lead mb-0 text-left font-weight-bold">€{{ album.price }}</p>
-                                        {% if album.rating %}
-                                            <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ album.rating }} / 5</small>
+                                    <div class="col-12">
+                                        {% if album.special_offer_price %}
+                                            <small class="text-left text-muted"><s>€{{ album.price }}</s></small>
+                                            <p class="lead mt-0 mb-0 text-left font-weight-bold">€{{ album.special_offer_price }}</p>
                                         {% else %}
-                                            <small class="text-muted">No Rating</small>
+                                            <p class="lead mt-0 mb-0 text-left font-weight-bold">€{{ album.price }}</p>
                                         {% endif %}
+                                        {% if album.rating %}
+                                            <p class="mb-0"><small class="text-muted"><i class="fas fa-star mr-1"></i>{{ album.rating }} / 5</small></p>
+                                        {% else %}
+                                            <p class="mb-0"><small class="text-muted">No Rating</small></p>
+                                        {% endif %}
+                                        <div class="card-footer pt-0 border-0 text-left">
+                                            {% if request.user.is_superuser %}
+                                                <small class="mb-0 text-left">
+                                                    <a href="{% url 'edit_album' album.id %}">Edit</a> | 
+                                                    <a class="text-danger" href="{% url 'delete_album' album.id %}">Delete</a>
+                                                </small>
+                                            {% endif %}
+                                        </div>
                                     </div>
                                 </div>
                             </div>

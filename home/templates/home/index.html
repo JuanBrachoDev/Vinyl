@@ -19,7 +19,7 @@
             </div>  
             <div class="col-12 col-md-8 offset-md-2 col-lg-4 offset-lg-4">
                 <img class="upper-text-ornament img-fluid" src="{{ MEDIA_URL }}text-ornament.png" alt="Upper Text Ornament">
-                <p class="text-center pl-5 pr-5 mb-0 about-us-text">We are the biggest vinyl records retailer in Ireland, providing our customers with the best audio quality from simpler times.</p>
+                <p class="text-center pl-5 pr-5 mb-0 about-us-text">We are the largest vinyl records retailer in Ireland, providing our customers with the best audio quality from simpler times.</p>
                 <img class="lower-text-ornament img-fluid" src="{{ MEDIA_URL }}text-ornament.png" alt="Lower Text Ornament">   
                 
             </div>
@@ -62,19 +62,25 @@
                             <div class="card-footer pt-0 border-0 text-left">
                                 <div class="row">
                                     <div class="col-12">
-                                        <small class="text-left text-muted"><s>€{{ deal.price }}</s></small>
-                                        <p class="lead mt-0 mb-0 text-left font-weight-bold">€{{ deal.special_offer_price }}</p>
+                                        {% if deal.special_offer_price %}
+                                            <small class="text-left text-muted"><s>€{{ deal.price }}</s></small>
+                                            <p class="lead mt-0 mb-0 text-left font-weight-bold">€{{ deal.special_offer_price }}</p>
+                                        {% else %}
+                                            <p class="lead mt-0 mb-0 text-left font-weight-bold">€{{ deal.price }}</p>
+                                        {% endif %}
                                         {% if deal.rating %}
                                             <p class="mb-0"><small class="text-muted"><i class="fas fa-star mr-1"></i>{{ deal.rating }} / 5</small></p>
                                         {% else %}
                                             <p class="mb-0"><small class="text-muted">No Rating</small></p>
                                         {% endif %}
-                                        {% if request.user.is_superuser %}
-                                            <small class="mb-0 text-left">
-                                                <a href="{% url 'edit_album' deal.id %}">Edit</a> | 
-                                                <a class="text-danger" href="{% url 'delete_album' deal.id %}">Delete</a>
-                                            </small>
-                                        {% endif %}
+                                        <div class="card-footer pt-0 border-0 text-left">
+                                            {% if request.user.is_superuser %}
+                                                <small class="mb-0 text-left">
+                                                    <a href="{% url 'edit_album' deal.id %}">Edit</a> | 
+                                                    <a class="text-danger" href="{% url 'delete_album' deal.id %}">Delete</a>
+                                                </small>
+                                            {% endif %}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -143,18 +149,25 @@
                             <div class="card-footer pt-0 border-0 text-left">
                                 <div class="row">
                                     <div class="col-12">
-                                        <p class="lead mt-0 mb-0 text-left font-weight-bold">€{{ new_arrival.price }}</p>
+                                        {% if new_arrival.special_offer_price %}
+                                            <small class="text-left text-muted"><s>€{{ new_arrival.price }}</s></small>
+                                            <p class="lead mt-0 mb-0 text-left font-weight-bold">€{{ new_arrival.special_offer_price }}</p>
+                                        {% else %}
+                                            <p class="lead mt-0 mb-0 text-left font-weight-bold">€{{ new_arrival.price }}</p>
+                                        {% endif %}
                                         {% if new_arrival.rating %}
                                             <p class="mb-0"><small class="text-muted"><i class="fas fa-star mr-1"></i>{{ new_arrival.rating }} / 5</small></p>
                                         {% else %}
                                             <p class="mb-0"><small class="text-muted">No Rating</small></p>
                                         {% endif %}
-                                        {% if request.user.is_superuser %}
-                                            <small class="mb-0 text-left">
-                                                <a href="{% url 'edit_album' new_arrival.id %}">Edit</a> | 
-                                                <a class="text-danger" href="{% url 'delete_album' new_arrival.id %}">Delete</a>
-                                            </small>
-                                        {% endif %}
+                                        <div class="card-footer pt-0 border-0 text-left">
+                                            {% if request.user.is_superuser %}
+                                                <small class="mb-0 text-left">
+                                                    <a href="{% url 'edit_album' new_arrival.id %}">Edit</a> | 
+                                                    <a class="text-danger" href="{% url 'delete_album' new_arrival.id %}">Delete</a>
+                                                </small>
+                                            {% endif %}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -212,19 +225,25 @@
                             <div class="card-footer pt-0 border-0 text-left">
                                 <div class="row">
                                     <div class="col-12">
-                                        <small class="text-left text-muted"><s>€{{ clearance.price }}</s></small>
-                                        <p class="lead mt-0 mb-0 text-left font-weight-bold">€{{ clearance.special_offer_price }}</p>
+                                        {% if clearance.special_offer_price %}
+                                            <small class="text-left text-muted"><s>€{{ clearance.price }}</s></small>
+                                            <p class="lead mt-0 mb-0 text-left font-weight-bold">€{{ clearance.special_offer_price }}</p>
+                                        {% else %}
+                                            <p class="lead mt-0 mb-0 text-left font-weight-bold">€{{ clearance.price }}</p>
+                                        {% endif %}
                                         {% if clearance.rating %}
                                             <p class="mb-0"><small class="text-muted"><i class="fas fa-star mr-1"></i>{{ clearance.rating }} / 5</small></p>
                                         {% else %}
                                             <p class="mb-0"><small class="text-muted">No Rating</small></p>
                                         {% endif %}
-                                        {% if request.user.is_superuser %}
-                                            <small class="mb-0 text-left">
-                                                <a href="{% url 'edit_album' clearance.id %}">Edit</a> | 
-                                                <a class="text-danger" href="{% url 'delete_album' clearance.id %}">Delete</a>
-                                            </small>
-                                        {% endif %}
+                                        <div class="card-footer pt-0 border-0 text-left">
+                                            {% if request.user.is_superuser %}
+                                                <small class="mb-0 text-left">
+                                                    <a href="{% url 'edit_album' clearance.id %}">Edit</a> | 
+                                                    <a class="text-danger" href="{% url 'delete_album' clearance.id %}">Delete</a>
+                                                </small>
+                                            {% endif %}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -267,14 +286,14 @@
                                     <a href="{% url 'artist_detail' featured.id %}" class="mb-0">{{ featured.name }}</a>
                                 </div>
                             {% endif %}
-                            {% if request.user.is_superuser %}
-                                <div class="card-footer pt-0 border-0 text-left">
+                            <div class="card-footer pt-0 border-0 text-left">
+                                {% if request.user.is_superuser %}
                                     <small>
                                         <a href="{% url 'edit_artist' featured.id %}">Edit</a> | 
                                         <a class="text-danger" href="{% url 'delete_artist' featured.id %}">Delete</a>
                                     </small>
-                                </div>
-                            {% endif %}
+                                {% endif %}
+                            </div>
                         </div>
                     </div>
                     <hr class="border-0 col-12">
@@ -315,18 +334,25 @@
                                     <div class="card-footer pt-0 border-0 text-left">
                                         <div class="row">
                                             <div class="col-12">
-                                                <p class="lead mt-0 mb-0 text-left font-weight-bold">€{{ album.price }}</p>
+                                                {% if album.special_offer_price %}
+                                                    <small class="text-left text-muted"><s>€{{ album.price }}</s></small>
+                                                    <p class="lead mt-0 mb-0 text-left font-weight-bold">€{{ album.special_offer_price }}</p>
+                                                {% else %}
+                                                    <p class="lead mt-0 mb-0 text-left font-weight-bold">€{{ album.price }}</p>
+                                                {% endif %}
                                                 {% if album.rating %}
                                                     <p class="mb-0"><small class="text-muted"><i class="fas fa-star mr-1"></i>{{ album.rating }} / 5</small></p>
                                                 {% else %}
                                                     <p class="mb-0"><small class="text-muted">No Rating</small></p>
                                                 {% endif %}
-                                                {% if request.user.is_superuser %}
-                                                    <small class="mb-0 text-left">
-                                                        <a href="{% url 'edit_album' album.id %}">Edit</a> | 
-                                                        <a class="text-danger" href="{% url 'delete_album' album.id %}">Delete</a>
-                                                    </small>
-                                                {% endif %}
+                                                <div class="card-footer pt-0 border-0 text-left">
+                                                    {% if request.user.is_superuser %}
+                                                        <small class="mb-0 text-left">
+                                                            <a href="{% url 'edit_album' album.id %}">Edit</a> | 
+                                                            <a class="text-danger" href="{% url 'delete_album' album.id %}">Delete</a>
+                                                        </small>
+                                                    {% endif %}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -396,18 +422,25 @@
                         <div class="card-footer pt-0 border-0 text-left">
                             <div class="row">
                                 <div class="col-12">
-                                    <p class="lead mt-0 mb-0 text-left font-weight-bold">€{{ album.price }}</p>
+                                    {% if album.special_offer_price %}
+                                        <small class="text-left text-muted"><s>€{{ album.price }}</s></small>
+                                        <p class="lead mt-0 mb-0 text-left font-weight-bold">€{{ album.special_offer_price }}</p>
+                                    {% else %}
+                                        <p class="lead mt-0 mb-0 text-left font-weight-bold">€{{ album.price }}</p>
+                                    {% endif %}
                                     {% if album.rating %}
                                         <p class="mb-0"><small class="text-muted"><i class="fas fa-star mr-1"></i>{{ album.rating }} / 5</small></p>
                                     {% else %}
                                         <p class="mb-0"><small class="text-muted">No Rating</small></p>
                                     {% endif %}
-                                    {% if request.user.is_superuser %}
-                                        <small class="mb-0 text-left">
-                                            <a href="{% url 'edit_album' album.id %}">Edit</a> | 
-                                            <a class="text-danger" href="{% url 'delete_album' album.id %}">Delete</a>
-                                        </small>
-                                    {% endif %}
+                                    <div class="card-footer pt-0 border-0 text-left">
+                                        {% if request.user.is_superuser %}
+                                            <small class="mb-0 text-left">
+                                                <a href="{% url 'edit_album' album.id %}">Edit</a> | 
+                                                <a class="text-danger" href="{% url 'delete_album' album.id %}">Delete</a>
+                                            </small>
+                                        {% endif %}
+                                    </div>
                                 </div>
                             </div>
                         </div>

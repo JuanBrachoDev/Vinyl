@@ -41,9 +41,12 @@
                     <div class="card-body p-0 text-center text-md-left">
                         <i class="fa fa-tags" aria-hidden="true"></i><a href="{% url 'albums' %}?genre={{ album.genre }}" class="mb-0 mt-0"> {{ album.genre }}</a>
                     </div>
-                    <div class="card-body p-0">
-                        <p class="lead mb-0 text-left font-weight-bold text-center text-md-left">€{{ album.price }}</p>
-                    </div>
+                    {% if album.special_offer_price %}
+                        <small class="text-left text-muted"><s>€{{ album.price }}</s></small>
+                        <p class="lead mt-0 mb-0 text-left font-weight-bold">€{{ album.special_offer_price }}</p>
+                    {% else %}
+                        <p class="lead mt-0 mb-0 text-left font-weight-bold">€{{ album.price }}</p>
+                    {% endif %}
                     {% if album.rating %}
                         <div class="card-body p-0 text-center text-md-left">
                             <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ album.rating }} / 5</small>
@@ -53,12 +56,14 @@
                             <small class="text-muted">No Rating</small>
                         </div>
                     {% endif %}
-                    {% if request.user.is_superuser %}
-                        <small>
-                            <a href="{% url 'edit_album' album.id %}">Edit</a> | 
-                            <a class="text-danger" href="{% url 'delete_album' album.id %}">Delete</a>
-                        </small>
-                    {% endif %}
+                    <div class="card-footer pt-0 border-0 text-left">
+                        {% if request.user.is_superuser %}
+                            <small>
+                                <a href="{% url 'edit_album' album.id %}">Edit</a> | 
+                                <a class="text-danger" href="{% url 'delete_album' album.id %}">Delete</a>
+                            </small>
+                        {% endif %}
+                    </div>
                     <form class="form" action="{% url 'add_to_cart' album.id %}" method="POST">
                         {% csrf_token %}
                         <div class="form-row">

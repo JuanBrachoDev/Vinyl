@@ -14,7 +14,10 @@ def cart_contents(request):
     # Adds each item's id, quantity and album to cart_items
     for item_id, quantity in cart.items():
         album = get_object_or_404(Album, pk=item_id)
-        total += quantity * album.price
+        if album.special_offer_price:
+            total += quantity * album.special_offer_price
+        else:
+            total += quantity * album.price
         product_count += quantity
         cart_items.append({
             'item_id': item_id,
