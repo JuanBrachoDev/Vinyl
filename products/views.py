@@ -34,10 +34,6 @@ def all_albums(request):
                     sortkey = f'-{sortkey}'
             albums = albums.order_by(sortkey)
 
-        if 'genre' in request.GET:
-            genres = request.GET['genre'].split(',')
-            albums = albums.filter(genre__in=genres)
-
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
@@ -75,12 +71,35 @@ def album_detail(request, album_id):
 
 
 def all_artists(request):
-    """ A view to show all artists, including sorting and search queries """
+    """ A view to show all artists, including sorting queries """
 
     artists = Artist.objects.all()
+    sort = None
+    direction = None
+
+    if request.GET:
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if sortkey == 'name':
+                sortkey = 'lower_name'
+                artists = artists.annotate(lower_name=Lower('name'))
+
+            if sortkey == 'featured':
+                sortkey = 'name'
+                artists = artists.filter(is_featured_artist=True)
+
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            artists = artists.order_by(sortkey)
+
+    current_sorting = f'{sort}_{direction}'
 
     context = {
         'artists': artists,
+        'current_sorting': current_sorting,
     }
 
     return render(request, 'products/artists.html', context)
