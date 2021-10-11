@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from django.db.models.functions import Lower
+from django.db.models.functions import Lower, Least
 
 from .models import Album, Artist
 from .forms import AlbumForm, ArtistForm
@@ -14,12 +14,29 @@ def all_albums(request):
     albums = Album.objects.all().order_by('name')
     query = None
     sort = None
+    category = None
     direction = None
 
     if request.GET:
+        if 'category' in request.GET:
+            category = request.GET['category']
+
+            if category == 'deals':
+                albums = albums.filter(special_offer_category='deal')
+
+            if category == 'arrivals':
+                albums = albums.filter(special_offer_category='new_arrival')
+
+            if category == 'clearance':
+                albums = albums.filter(special_offer_category='clearance')
+
+            if category == 'specials':
+                albums = albums.filter(~Q(special_offer_category='no_offer'))
+
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
             sort = sortkey
+
             if sortkey == 'name':
                 sortkey = 'lower_name'
                 albums = albums.annotate(lower_name=Lower('name'))
@@ -27,6 +44,11 @@ def all_albums(request):
             if sortkey == 'artist':
                 sortkey = 'lower_name'
                 albums = albums.annotate(lower_name=Lower('artist__name'))
+
+            if sortkey == 'price':
+                sortkey = 'lower_price'
+                albums = albums.annotate(
+                    lower_price=Least('price', 'special_offer_price'))
 
             if 'direction' in request.GET:
                 direction = request.GET['direction']

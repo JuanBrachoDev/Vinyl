@@ -24,8 +24,7 @@
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="artists-link">
                 <a href="{% url 'artists' %}" class="dropdown-item">All Artists</a>
-                <a href="" class="dropdown-item">By Rating</a>
-                <a href="" class="dropdown-item">By Genre</a>
+                <a href="{% url 'artists' %}?sort=featured&direction=asc" class="dropdown-item">Featured Artists</a>
             </div>
         </li>
 
@@ -34,10 +33,10 @@
                 Special Offers
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                <a href="" class="dropdown-item">New Arrivals</a>
-                <a href="" class="dropdown-item">Deals</a>
-                <a href="" class="dropdown-item">Clearance</a>
-                <a href="" class="dropdown-item">All Specials</a>
+                <a href="{% url 'albums' %}?category=deals" class="dropdown-item">Deals</a>
+                <a href="{% url 'albums' %}?category=arrivals" class="dropdown-item">New Arrivals</a>
+                <a href="{% url 'albums' %}?category=clearance" class="dropdown-item">Clearance</a>
+                <a href="{% url 'albums' %}?category=specials" class="dropdown-item">All Specials</a>
             </div>
         </li>
     </ul>
