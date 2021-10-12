@@ -12,7 +12,7 @@ from products.models import Album
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False)
     user_profile = models.ForeignKey(
-        UserProfile, null=True, blank=False, on_delete=models.PROTECT,
+        UserProfile, null=True, blank=False, on_delete=models.SET_NULL,
         related_name='orders'
         )
     first_name = models.CharField(max_length=50, null=False, blank=False)
