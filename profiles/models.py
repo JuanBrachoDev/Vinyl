@@ -14,6 +14,8 @@ class UserProfile(models.Model):
         verbose_name_plural = 'User Profiles'
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    default_first_name = models.CharField(max_length=35, null=True, blank=True)
+    default_last_name = models.CharField(max_length=35, null=True, blank=True)
     default_phone_number = models.CharField(max_length=20, null=True, blank=True)
     default_address_line1 = models.CharField(max_length=80, null=True, blank=True)
     default_address_line2 = models.CharField(max_length=80, null=True, blank=True)
