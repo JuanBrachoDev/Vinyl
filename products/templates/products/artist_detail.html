@@ -14,20 +14,22 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 col-md-6 col-lg-4 offset-md-3 offset-lg-4">
-                <p class="mb-0 text-center">{{ artist.name }}</p>
-                {% if request.user.is_superuser %}
-                    <small>
-                        <a href="{% url 'edit_artist' artist.id %}">Edit</a> | 
-                        <a class="text-danger" href="{% url 'delete_artist' artist.id %}">Delete</a>
-                    </small>
-                {% endif %}
+                <h1 class="mb-0 text-center">{{ artist.name }}</h1>
+                <div class="p-0 border-0 text-center">
+                    {% if request.user.is_superuser %}
+                        <small>
+                            <a class="text-info" href="{% url 'edit_artist' artist.id %}">Edit</a> | 
+                            <a class="text-danger" href="{% url 'delete_artist' artist.id %}">Delete</a>
+                        </small>
+                    {% endif %}
+                </div>
                 <div class="image-container my-5">
                     {% if artist.image %}
                         <a href="{{ artist.image.url }}" target="_blank">
-                            <img class="card-img-top img-fluid" src="{{ artist.image.url }}" alt="{{ artist.name }}">
+                            <img class="artist-detail-banner-image img-fluid" src="{{ artist.image.url }}" alt="{{ artist.name }}">
                         </a>
                     {% else %}
-                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ artist.name }}">
+                        <img class="artist-detail-banner-image img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ artist.name }}">
                     {% endif %}
                 </div>
             </div>
@@ -40,10 +42,9 @@
     </div>
     <div class="row">
         <div class="product-container col-10 offset-1">
-            <div class="row mt-1 mb-2"></div>
             <div class="row">
                 {% for album in albums %}
-                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 artist-detail-albums-container">
                         <div class="card h-100 border-0">
                             {% if album.image %}
                                 <a href="{% url 'album_detail' album.id %}">
@@ -54,21 +55,22 @@
                                     <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ album.name }}">
                                 </a>
                             {% endif %}
-                            <div class="card-body pb-0">
-                                <p class="mb-0">{{ album.name }}</p>
-                            </div>
+                            {% if album.name %}
+                                <div class="card-body pb-0">
+                                    <a href="{% url 'album_detail' album.id %}" class="mb-0"><h5 class="m-0">{{ album.name }}</h5></a>
+                                </div>
+                            {% endif %}
                             {% if album.artist %}
                                 <div class="card-body pb-0 pt-0">
-                                    <p class="mb-0 mt-0">by {{ album.artist }}</p>
+                                    by <a href="{% url 'artist_detail' album.artist.id %}" class="mb-0 mt-0">{{ album.artist }}</a>
                                 </div>
                             {% else %}
                                 <div class="card-body pb-0 pt-0">
                                     <p class="mb-0 mt-0">by Independent Artist</p>
                                 </div>
                             {% endif %}
-
                             <div class="card-body pb-0 pt-0">
-                                <i class="fa fa-tags" aria-hidden="true"></i><a href="{% url 'albums' %}?genre={{ album.genre }}" class="mb-0 mt-0"> {{ album.genre }}</a>
+                                <i class="fa fa-music" aria-hidden="true"></i><a href="{% url 'albums' %}?genre={{ album.genre }}" class="mb-0 mt-0"> {{ album.genre }}</a>
                             </div>
                             <div class="card-footer pt-0 border-0 text-left">
                                 <div class="row">
@@ -84,10 +86,10 @@
                                         {% else %}
                                             <p class="mb-0"><small class="text-muted">No Rating</small></p>
                                         {% endif %}
-                                        <div class="card-footer pt-0 border-0 text-left">
+                                        <div class="card-footer p-0 border-0 text-left">
                                             {% if request.user.is_superuser %}
-                                                <small class="mb-0 text-left">
-                                                    <a href="{% url 'edit_album' album.id %}">Edit</a> | 
+                                                <small>
+                                                    <a class="text-info" href="{% url 'edit_album' album.id %}">Edit</a> | 
                                                     <a class="text-danger" href="{% url 'delete_album' album.id %}">Delete</a>
                                                 </small>
                                             {% endif %}

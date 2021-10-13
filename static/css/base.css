@@ -197,13 +197,74 @@ hr {
 
 /* ------------------------------- Album detail */
 
+.album-name {
+    font-size: xx-large;
+}
+
 .album-detail-cover-mobile {
-    width: 275px;
-    height: 275px;
+    width: 350px;
+    height: 350px;
+}
+
+.album-details-container {
+    word-break: break-word;
+}
+
+.album-details-container a{
+    color: black;
 }
 
 .image-container {
     justify-content: center;
+}
+
+.spotify-player {
+    width: 600px;
+    height: 400px;
+}
+
+/* Small Spotify player on medium and smaller screens */
+@media (max-width: 768px) {
+    .spotify-player {
+        width: 280px;
+        height: 380px;
+    }
+
+    .album-detail-cover-mobile {
+        width: 250px;
+        height: 250px;
+    }
+  }
+
+.round-button {
+    border-radius: 10px;
+}
+
+.quantity-less {
+    border-radius: 10px 0px 0px 10px;
+}
+
+.quantity-more {
+    border-radius: 0px 10px 10px 0px;
+}
+
+
+/* ------------------------------- Artists */
+
+.artists-container a{
+    color: black;
+}
+
+
+/* ------------------------------- Artist Detail */
+
+.artist-detail-albums-container a{
+    color: black;
+}
+
+.artist-detail-banner-image {
+    border-radius: 5px;
+
 }
 
 

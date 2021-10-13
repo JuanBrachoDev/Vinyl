@@ -42,11 +42,14 @@
                     </div>
                 </div>
                 {% if current_sorting == 'featured_asc' or current_sorting == 'featured_desc' %}
-                    <p>These are our featured artists for the month, you can go back to all artists here.</p>
+                    <p>
+                        These are our featured artists of the month, you can go back to all artists 
+                        <a href="{% url 'artists' %}">here</a>.
+                    </p>
                 {% endif %}
                 <div class="row justify-content-center align-items-center">
                     {% for artist in artists %}
-                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3 artists-container">
                             <div class="card h-100 border-0">
                                 {% if artist.image %}
                                     <a href="{% url 'artist_detail' artist.id %}">
@@ -57,13 +60,15 @@
                                         <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ artist.name }}">
                                     </a>
                                 {% endif %}
-                                <div class="card-body pb-0">
-                                    <p class="mb-0">{{ artist.name }}</p>
-                                </div>
-                                <div class="card-footer pt-0 border-0 text-left">
+                                {% if artist.name %}
+                                    <div class="card-body pb-0 text-center">
+                                        <a href="{% url 'artist_detail' artist.id %}" class="mb-0"><h2>{{ artist.name }}</h2></a>
+                                    </div>
+                                {% endif %}
+                                <div class="p-0 border-0 text-center">
                                     {% if request.user.is_superuser %}
                                         <small>
-                                            <a href="{% url 'edit_artist' artist.id %}">Edit</a> | 
+                                            <a class="text-info" href="{% url 'edit_artist' artist.id %}">Edit</a> | 
                                             <a class="text-danger" href="{% url 'delete_artist' artist.id %}">Delete</a>
                                         </small>
                                     {% endif %}

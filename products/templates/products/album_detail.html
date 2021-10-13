@@ -26,27 +26,31 @@
             </div>
             <div class="col-12 col-md-6 d-flex justify-content-center">
                 <div class="album-details-container mb-5 mt-md-5">
-                    <div class="card-body p-0">
-                        <p class="mb-0 text-center text-md-left">{{ album.name }}</p>
-                    </div>
+                    {% if album.name %}
+                        <div class="card-body p-0 text-center text-md-left album-name">
+                            <p class="mb-0">{{ album.name }}</p>
+                        </div>
+                    {% endif %}
                     {% if album.artist %}
-                        <div class="card-body p-0">
-                            <p class="mb-0 mt-0 text-center text-md-left">by {{ album.artist }}</p>
+                        <div class="card-body p-0 text-center text-md-left">
+                            by <a href="{% url 'artist_detail' album.artist.id %}" class="mb-0 mt-0">{{ album.artist }}</a>
                         </div>
                     {% else %}
-                        <div class="card-body p-0">
-                            <p class="mb-0 mt-0 text-center text-md-left">by Independent Artist</p>
+                        <div class="card-body p-0 text-center text-md-left">
+                            <p class="mb-0 mt-0">by Independent Artist</p>
                         </div>
                     {% endif %}
                     <div class="card-body p-0 text-center text-md-left">
-                        <i class="fa fa-tags" aria-hidden="true"></i><a href="{% url 'albums' %}?genre={{ album.genre }}" class="mb-0 mt-0"> {{ album.genre }}</a>
+                        <i class="fa fa-music" aria-hidden="true"></i><a href="{% url 'albums' %}?genre={{ album.genre }}" class="mb-0 mt-0"> {{ album.genre }}</a>
                     </div>
-                    {% if album.special_offer_price %}
-                        <small class="text-left text-muted"><s>€{{ album.price }}</s></small>
-                        <p class="lead mt-0 mb-0 text-left font-weight-bold">€{{ album.special_offer_price }}</p>
-                    {% else %}
-                        <p class="lead mt-0 mb-0 text-left font-weight-bold">€{{ album.price }}</p>
-                    {% endif %}
+                    <div class="card-body p-0 text-center text-md-left">
+                        {% if album.special_offer_price %}
+                            <small class=""><s>€{{ album.price }}</s></small>
+                            <p class="lead mt-0 mb-0 font-weight-bold">€{{ album.special_offer_price }}</p>
+                        {% else %}
+                            <p class="lead mt-0 mb-0 font-weight-bold">€{{ album.price }}</p>
+                        {% endif %}
+                    </div>
                     {% if album.rating %}
                         <div class="card-body p-0 text-center text-md-left">
                             <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ album.rating }} / 5</small>
@@ -56,10 +60,10 @@
                             <small class="text-muted">No Rating</small>
                         </div>
                     {% endif %}
-                    <div class="card-footer pt-0 border-0 text-left">
+                    <div class="card-footer p-0 border-0 text-center text-md-left">
                         {% if request.user.is_superuser %}
                             <small>
-                                <a href="{% url 'edit_album' album.id %}">Edit</a> | 
+                                <a class="text-info" href="{% url 'edit_album' album.id %}">Edit</a> | 
                                 <a class="text-danger" href="{% url 'delete_album' album.id %}">Delete</a>
                             </small>
                         {% endif %}
@@ -72,7 +76,7 @@
                                 <div class="form-group w-50 mx-auto mx-md-0">
                                     <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <button class="decrement-qty btn btn-black rounded-0" 
+                                            <button class="quantity-less decrement-qty btn btn-black" 
                                                 data-item_id="{{ album.id }}" id="decrement-qty_{{ album.id }}">
                                                 <span class="icon">
                                                     <i class="fas fa-minus"></i>
@@ -84,7 +88,7 @@
                                             data-item_id="{{ album.id }}"
                                             id="id_qty_{{ album.id }}">
                                         <div class="input-group-append">
-                                            <button class="increment-qty btn btn-black rounded-0"
+                                            <button class="quantity-more increment-qty btn btn-black"
                                                 data-item_id="{{ album.id }}" id="increment-qty_{{ album.id }}">
                                                 <span class="icon">
                                                     <i class="fas fa-plus"></i>
@@ -95,8 +99,8 @@
                                 </div>
                             </div>
                             <div class="col-12 mt-2 mb-5 text-center text-md-left">
-                                <input type="submit" class="btn btn-black rounded-0 text-uppercase mt-1 mt-sm-0" value="Add to Cart">
-                                <a href="{% url 'albums' %}" class="btn btn-outline-black rounded-0 mt-1 mt-sm-0">
+                                <input type="submit" class="round-button btn btn-black text-uppercase mt-1 mt-sm-0" value="Add to Cart">
+                                <a href="{% url 'albums' %}" class="round-button btn btn-outline-black mt-1 mt-sm-0">
                                     <span class="icon">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
@@ -110,7 +114,7 @@
             </div>
             {% if spotify_valid_link %}
                 <div class="col-12 col-md-6 d-flex justify-content-center mb-3">
-                    <iframe src="https://open.spotify.com/embed/album/{{ album.spotify_link }}" width="280" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                    <iframe class="spotify-player" src="https://open.spotify.com/embed/album/{{ album.spotify_link }}" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                 </div>  
             {% else %}
                 <div class="col-12 col-md-6 d-flex justify-content-center mb-3">

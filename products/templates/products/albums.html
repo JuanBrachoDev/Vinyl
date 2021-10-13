@@ -65,7 +65,7 @@
                                 {% endif %}
                                 {% if album.name %}
                                     <div class="card-body pb-0">
-                                        <a href="{% url 'album_detail' album.id %}" class="mb-0">{{ album.name }}</a>
+                                        <a href="{% url 'album_detail' album.id %}" class="mb-0"><h5 class="m-0">{{ album.name }}</h5></a>
                                     </div>
                                 {% endif %}
                                 {% if album.artist %}
@@ -78,7 +78,7 @@
                                     </div>
                                 {% endif %}
                                 <div class="card-body pb-0 pt-0">
-                                    <i class="fa fa-tags" aria-hidden="true"></i><a href="{% url 'albums' %}?genre={{ album.genre }}" class="mb-0 mt-0"> {{ album.genre }}</a>
+                                    <i class="fa fa-music" aria-hidden="true"></i><a href="{% url 'albums' %}?genre={{ album.genre }}" class="mb-0 mt-0"> {{ album.genre }}</a>
                                 </div>
                                 <div class="card-footer pt-0 border-0 text-left">
                                     <div class="row">
@@ -94,10 +94,10 @@
                                             {% else %}
                                                 <p class="mb-0"><small class="text-muted">No Rating</small></p>
                                             {% endif %}
-                                            <div class="card-footer pt-0 border-0 text-left">
+                                            <div class="card-footer p-0 border-0 text-left">
                                                 {% if request.user.is_superuser %}
-                                                    <small class="mb-0 text-left">
-                                                        <a href="{% url 'edit_album' album.id %}">Edit</a> | 
+                                                    <small>
+                                                        <a class="text-info" href="{% url 'edit_album' album.id %}">Edit</a> | 
                                                         <a class="text-danger" href="{% url 'delete_album' album.id %}">Delete</a>
                                                     </small>
                                                 {% endif %}
