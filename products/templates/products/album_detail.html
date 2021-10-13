@@ -108,9 +108,15 @@
                     </form>
                 </div> 
             </div>
-            <div class="col-12 col-md-6 d-flex justify-content-center mb-3">
-                <iframe src="https://open.spotify.com/embed/album/{{ album.spotify_link }}" width="280" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-            </div>                
+            {% if spotify_valid_link %}
+                <div class="col-12 col-md-6 d-flex justify-content-center mb-3">
+                    <iframe src="https://open.spotify.com/embed/album/{{ album.spotify_link }}" width="280" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                </div>  
+            {% else %}
+                <div class="col-12 col-md-6 d-flex justify-content-center mb-3">
+                    <p class="text-justify">Sorry, there is no spotify link available for this album.</p> 
+                </div>
+            {% endif %}             
         </div>
     </div>
 {% endblock %}            

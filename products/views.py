@@ -4,6 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower, Least
 
+import requests
+
 from .models import Album, Artist
 from .forms import AlbumForm, ArtistForm
 
@@ -88,9 +90,20 @@ def album_detail(request, album_id):
     """ A view to display the details of a single album. """
 
     album = get_object_or_404(Album, pk=album_id)
+    spotify_valid_link = False
+
+    try:
+        response = requests.get(
+            f"https://open.spotify.com/embed/album/{album.spotify_link}"
+            )
+        if response.status_code == 200:
+            spotify_valid_link = True
+    except requests.ConnectionError as exception:
+        print("URL does not exist.")
 
     context = {
         'album': album,
+        'spotify_valid_link': spotify_valid_link,
     }
 
     return render(request, 'products/album_detail.html', context)
