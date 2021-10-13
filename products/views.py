@@ -18,6 +18,10 @@ def all_albums(request):
     direction = None
 
     if request.GET:
+        if 'genre' in request.GET:
+            genre = request.GET['genre']
+            albums = albums.filter(genre=genre)
+
         if 'category' in request.GET:
             category = request.GET['category']
 
