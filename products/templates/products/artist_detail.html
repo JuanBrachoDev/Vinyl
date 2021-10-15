@@ -14,8 +14,8 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 col-md-6 col-lg-4 offset-md-3 offset-lg-4">
-                <h1 class="mb-0 text-center">{{ artist.name }}</h1>
-                <div class="p-0 border-0 text-center">
+                <h1 class="mb-0 text-center page-title">{{ artist.name }}</h1>
+                <div class="p-0 border-0 text-center artist-detail-edit">
                     {% if request.user.is_superuser %}
                         <small>
                             <a class="text-info" href="{% url 'edit_artist' artist.id %}">Edit</a> | 
