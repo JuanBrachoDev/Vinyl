@@ -379,6 +379,28 @@ hr {
     height: 100%;
 }
 
+#card-element {
+    background-color: white;
+    border-radius: .25rem;
+}
+
+#card-element input::placeholder {
+    color: black;
+}
+
+.order-confirmation-wrapper {
+    word-break: break-all;
+    color: black;
+    background-color: white;
+    border-radius: .25rem;
+}
+
+/* ------------------------------- Profile */
+
+.dark-background-light-text-area table {
+    color: white;
+}
+
 
 /* ------------------------------- bootstrap toasts */
 
