@@ -3,7 +3,7 @@
 body { 
     font-family: 'Righteous', cursive;
     background-color: #18191A;
-    color: black;
+    color: white;
 }
 
 .product-separator {
@@ -23,6 +23,11 @@ body {
 
 .card {
     background-image: url("/media/background.png");
+    color: black;
+}
+
+.card a{
+    color: black;
 }
 
 .card-footer {
@@ -42,6 +47,26 @@ body {
 
 .btt-button {
     cursor: pointer;
+    color: black;
+}
+
+.search-terms-and-sorting {
+    color: white;
+}
+
+
+.search-terms-and-sorting a {
+    color: rgb(225, 225, 225);
+}
+
+.border-purple {
+    border: 1px solid #FF44CC;
+}
+
+.page-title {
+    color: white;
+    text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000;
+    margin-bottom: 40px;
 }
 
 
@@ -152,6 +177,10 @@ hr {
 
 /* ------------------------------- Home */
 
+.home-page-section a{
+    color: black;
+}
+
 .about-us-text {
     color: white;
 }
@@ -193,6 +222,9 @@ hr {
     background-image: url("/media/artist-parallax.jpeg");
     min-height: 200px; 
   }
+
+
+/* ------------------------------- Albums */
 
 
 /* ------------------------------- Album detail */
@@ -251,12 +283,13 @@ hr {
 
 /* ------------------------------- Artists */
 
-.artists-container a{
-    color: black;
-}
 
 
 /* ------------------------------- Artist Detail */
+
+.artist-title {
+    color: white;
+}
 
 .artist-detail-albums-container a{
     color: black;
