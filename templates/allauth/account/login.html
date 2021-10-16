@@ -14,8 +14,8 @@
 {% get_providers as socialaccount_providers %}
 
 {% if socialaccount_providers %}
-<p>{% blocktrans with site.name as site_name %}Please sign in with one
-of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
+<p>{% blocktrans with site.name as site_name %}Please sign in with your Spotify account.
+ Or, <a href="{{ signup_url }}">sign up</a>
 for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 
 <div class="socialaccount_ballot">
@@ -23,8 +23,6 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
   <ul class="socialaccount_providers">
     {% include "socialaccount/snippets/provider_list.html" with process="login" %}
   </ul>
-
-  <div class="login-or">{% trans 'or' %}</div>
 
 </div>
 
@@ -41,8 +39,8 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
-  <a class="btn btn-outline-black rounded-0" href="{% url 'home' %}">Home</a>
-  <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
+  <a class="btn btn-outline-black round-button" href="{% url 'home' %}">Home</a>
+  <button class="primaryAction btn round-button" type="submit">{% trans "Sign In" %}</button>
   <p class="mt-2">
     <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
   </p>

@@ -419,6 +419,10 @@ hr {
     height: 2px;
 }
 
+.spotify img {
+    height: 35px;
+}
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
