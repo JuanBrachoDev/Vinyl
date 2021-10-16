@@ -42,7 +42,7 @@ class Album(models.Model):
     genre = models.CharField(max_length=254)
     spotify_link = models.CharField(max_length=254)
     price = models.DecimalField(max_digits=6, decimal_places=2)
-    rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
+    rating = models.DecimalField(max_digits=3, decimal_places=2, null=True, blank=True)
     image = models.ImageField(upload_to=get_album_upload_path, null=True, blank=True)
 
     offers = (

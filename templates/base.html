@@ -93,7 +93,7 @@
                                         </div>
                                     {% endif %}
                                     <div class="pl-2 pr-2 mt-2">
-                                        <p class="mb-0">Your Account</p>
+                                        {% if request.user.is_superuser %}<p class="mb-0">Your Account</p>{% endif %}
                                         <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                                         <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                                     </div>
