@@ -276,7 +276,7 @@ def delete_album(request, album_id):
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
-    
+
     album = get_object_or_404(Album, pk=album_id)
     album.delete()
     messages.success(request, 'Album deleted!')

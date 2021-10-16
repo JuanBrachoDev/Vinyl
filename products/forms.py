@@ -14,7 +14,6 @@ class AlbumForm(forms.ModelForm):
         special_offer_price = self.cleaned_data.get('special_offer_price')
         price = self.cleaned_data.get('price')
         rating = self.cleaned_data.get('rating')
-        print(price)
 
         if price and price <= 0:
             self._errors['price'] = self.error_class([
