@@ -1,0 +1,6 @@
+/* ------------------------------- Cart */
+
+/* Makes text in the cart table white */
+.dark-background-light-text-area table {
+    color: white;
+}

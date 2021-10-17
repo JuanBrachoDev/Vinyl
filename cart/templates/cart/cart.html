@@ -2,6 +2,10 @@
 {% load static %}
 {% load cart_tools %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'cart/css/cart.css' %}">
+{% endblock %}
+
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
@@ -11,6 +15,7 @@
 {% endblock %}
 
 {% block content %}
+    <!-- Overlay and Title -->
     <div class="overlay"></div>
     <div class="container mb-2">
         <div class="row">
@@ -21,6 +26,7 @@
             </div>
         </div>
 
+        <!-- Cart Items -->
         <div class="row dark-background-light-text-area">
             <div class="col">
                 {% if cart_items %}
