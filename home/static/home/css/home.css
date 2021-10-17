@@ -1,0 +1,48 @@
+/* ------------------------------- Home */
+
+.home-page-section a{
+    color: black;
+}
+
+.about-us-text {
+    color: white;
+}
+
+.lower-text-ornament{
+    transform: rotate(180deg);
+    color: violet;
+}
+
+.section-header {
+    color: white;
+    text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000;
+    margin-bottom: 40px;
+}
+
+.home-page-section {
+    min-height: 500px; 
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.deals-section {
+    background-image: url("/media/deals-parallax.jpeg");
+  }
+
+  .clearance-section {
+    background-image: url("/media/clearance-parallax.jpeg");
+  }
+
+  .arrivals-section {
+    background-image: url("/media/arrivals-parallax.jpeg");
+  }
+
+  .artist-section {
+    background-image: url("/media/artist-parallax.jpeg");
+    min-height: 200px; 
+  }
+
