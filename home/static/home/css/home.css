@@ -1,5 +1,6 @@
 /* ------------------------------- Home */
 
+/* Colors text so it contrasts with background */
 .home-page-section a{
     color: black;
 }
@@ -10,15 +11,16 @@
 
 .lower-text-ornament{
     transform: rotate(180deg);
-    color: violet;
 }
 
+/* Adds text shadow around text so it improves contrast */
 .section-header {
     color: white;
     text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000;
     margin-bottom: 40px;
 }
 
+/* Adds parallax effect to background of sections */
 .home-page-section {
     min-height: 500px; 
     padding-top: 10px;
@@ -29,6 +31,7 @@
     background-size: cover;
 }
 
+/* Adds an image to complete the parallax effect */
 .deals-section {
     background-image: url("/media/deals-parallax.jpeg");
   }

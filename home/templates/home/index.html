@@ -14,6 +14,7 @@
 {% endblock %}
 
 {% block content %}
+    
     <div class="overlay"></div>
     <div class="container-fluid">
         <!-- About Us -->
@@ -34,6 +35,7 @@
                 <div class="col-12 text-center mt-3">
                     <h1 class="logo-font section-header">Latest Deals</h1>
                 </div>
+                <!-- Albums -->
                 {% for deal in deals %}
                     <div class="col-sm-6 col-md-6 col-lg-3 col-xl-3 offset-lg-2 offset-xl-0">
                         <div class="card h-100 border-0">
@@ -90,6 +92,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Horizontal Rules -->
                     {% if deals.count == 1 %}
                         <div class="col-12 col-sm-8 col-lg-6 offset-sm-2 offset-lg-3">
                             <hr class="product-separator">
@@ -118,9 +121,10 @@
         <!-- New Arrivals -->
         {% if new_arrivals %}         
             <div class="row arrivals-section home-page-section">
-                    <div class="col-12 text-center mt-3">
-                        <h1 class="logo-font section-header">New Arrivals</h1>
-                    </div>
+                <div class="col-12 text-center mt-3">
+                    <h1 class="logo-font section-header">New Arrivals</h1>
+                </div>
+                <!-- Albums -->
                 {% for new_arrival in new_arrivals %}
                     <div class="col-sm-6 col-md-6 col-xl-3 offset-xl-2">
                         <div class="card h-100 border-0">
@@ -177,6 +181,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Horizontal Rules -->
                     {% if forloop.counter|divisibleby:1 %}
                         <div class="col-12 d-sm-none mb-5">
                             <hr class="product-separator">
@@ -197,6 +202,7 @@
                 <div class="col-12 text-center mt-3">
                     <h1 class="logo-font section-header">Clearance</h1>
                 </div>
+                <!-- Albums -->
                 {% for clearance in clearances %}
                     <div class="col-sm-6 col-md-6 col-xl-3 offset-xl-2">
                         <div class="card h-100 border-0">
@@ -253,6 +259,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Horizontal Rules -->
                     {% if forloop.counter|divisibleby:1 %}
                         <div class="col-12 d-sm-none mb-5">
                             <hr class="product-separator">
@@ -273,6 +280,7 @@
                 <div class="col-12 text-center mt-3">
                     <h1 class="logo-font section-header">Featured Artist</h1>
                 </div>
+                <!-- Artist -->
                 {% for featured in featured_artist %}
                     <div class="col-12 col-sm-6 col-md-6 col-lg-4 offset-sm-3 offset-lg-4">
                         <div class="card h-100 border-0 artist-card">
@@ -301,6 +309,7 @@
                         </div>
                     </div>
                     <hr class="border-0 col-12">
+                    <!-- Albums -->
                     {% if featured_artist_albums %}
                         {% for album in featured_artist_albums %}
                             {% if featured_artist_albums.count > 1 %}
@@ -362,6 +371,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <!-- Horizontal Rules -->
                             {% if featured_artist_albums.count == 1 %}
                                 <div class="col-12 col-sm-8 col-lg-6 offset-sm-2 offset-lg-3">
                                     <hr class="product-separator">
@@ -394,6 +404,7 @@
             <div class="col-12 text-center mt-3">
                 <h1 class="logo-font section-header">All Albums</h1>
             </div>
+            <!-- Albums -->
             {% for album in albums %}
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                     <div class="card h-100 border-0">
@@ -450,6 +461,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Horizontal Rules -->
                 {% if forloop.counter|divisibleby:1 %}
                     <div class="col-12 d-sm-none mb-5">
                         <hr class="product-separator">
