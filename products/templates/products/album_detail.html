@@ -14,21 +14,24 @@
 {% endblock %}
 
 {% block content %}
+    <!-- Overlay and Title -->
     <div class="overlay"></div>
     <div class="container-fluid">
         <h1 class="mb-0 text-center page-title">{{ album.name }}</h1>
         <div class="row justify-content-center">
+            <!-- Album Cover -->
             <div class="col-12 col-md-6 d-flex justify-content-center">
                 <div class="image-container my-5">
                     {% if album.image %}
                         <a href="{{ album.image.url }}" target="_blank">
-                            <img class="album-detail-cover-mobile card-img-top img-fluid" src="{{ album.image.url }}" alt="{{ album.name }}">
+                            <img class="album-detail-cover card-img-top img-fluid" src="{{ album.image.url }}" alt="{{ album.name }}">
                         </a>
                     {% else %}
-                        <img class="album-detail-cover-mobile card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ album.name }}">
+                        <img class="album-detail-cover card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ album.name }}">
                     {% endif %}
                 </div>
             </div>
+            <!-- Album Details -->
             <div class="col-12 col-md-6 d-flex justify-content-center">
                 <div class="album-details-container mb-5 mt-md-5">
                     {% if album.name %}
@@ -73,6 +76,7 @@
                             </small>
                         {% endif %}
                     </div>
+                    <!-- Add to Cart Form -->
                     <form class="form" action="{% url 'add_to_cart' album.id %}" method="POST">
                         {% csrf_token %}
                         <div class="form-row">
@@ -117,6 +121,7 @@
                     </form>
                 </div> 
             </div>
+            <!-- Spotify Player -->
             {% if spotify_valid_link %}
                 <div class="col-12 col-md-6 d-flex justify-content-center mb-3">
                     <iframe class="spotify-player" src="https://open.spotify.com/embed/album/{{ album.spotify_link }}" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>

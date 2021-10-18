@@ -1,3 +1,5 @@
+// Replaces the current GET parameters with the type of sorting
+// selected and reloads page
 $('#sort-selector').change(function() {
     var selector = $(this);
     var currentUrl = new URL(window.location);

@@ -1,22 +1,25 @@
 /* ------------------------------- Album detail */
 
+/* Enlarges the album name */
 .album-name {
     font-size: xx-large;
 }
 
-.album-detail-cover-mobile {
+/* Fixes album cover dimentions */
+.album-detail-cover {
     width: 350px;
     height: 350px;
 }
 
+/* Allows word break and enables text shadow for better contrast */
 .album-details-container {
     word-break: break-word;
     text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000;
 }
 
+/* Colours buttons text */
 .album-details-container a, input{
     color: white;
-    
 }
 
 .album-details-container .btn {
@@ -24,29 +27,32 @@
     color: white;
 }
 
+/* Centers album cover */
 .image-container {
     justify-content: center;
 }
 
+/* Fixes spotify player dimentions */
 .spotify-player {
     width: 600px;
     height: 400px;
 }
 
-/* Small Spotify player on medium and smaller screens */
+/* Small Spotify player and album covers on medium and smaller screens */
 @media (max-width: 768px) {
     .spotify-player {
         width: 280px;
         height: 380px;
     }
 
-    .album-detail-cover-mobile {
+    .album-detail-cover {
         width: 250px;
         height: 250px;
     }
   }
 
 
+/* Rounds opposite corners for - and + quantity buttons */
 .quantity-less {
     border-radius: 10px 0px 0px 10px;
 }
@@ -58,6 +64,7 @@
 
 /* ------------------------------- Album and Artist Forms */
 
+/* Improves image input in album and artist forms */
 .btn-file {
     position: relative;
     overflow: hidden;
@@ -84,6 +91,7 @@
     border-radius: 0;
 }
 
+/* Improves text contrast */
 #filename {
     text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000;
 }
@@ -91,6 +99,7 @@
 
 /* ------------------------------- Artist Detail */
 
+/* Improves text contrast */
 .artist-title {
     color: white;
 }
@@ -99,11 +108,12 @@
     color: black;
 }
 
+.artist-detail-edit {
+    text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000;
+}
+
+/* Rounds corners of artist banner */
 .artist-detail-banner-image {
     border-radius: 5px;
 
-}
-
-.artist-detail-edit {
-    text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000;
 }
