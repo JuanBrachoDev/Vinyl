@@ -1,10 +1,10 @@
 <div class="collapse navbar-collapse" id="main-nav">
     <ul class="navbar-nav w-auto mx-auto">
-
+        <!-- Home -->
         <li class="">
             <a href="{% url 'home' %}" class="nav-link font-weight-bold mr-5">Home</a>
         </li>
-
+        <!-- Albums -->
         <li class="nav-item dropdown">
             <a class="font-weight-bold nav-link mr-5" href="#" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Albums
@@ -17,7 +17,7 @@
                 <a href="{% url 'albums' %}?sort=artist&direction=asc" class="dropdown-item">By Artist</a>
             </div>
         </li>
-
+        <!-- Artists -->
         <li class="nav-item dropdown">
             <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Artists
@@ -27,7 +27,7 @@
                 <a href="{% url 'artists' %}?sort=featured&direction=asc" class="dropdown-item">Featured Artists</a>
             </div>
         </li>
-
+        <!-- Special Offers -->
         <li class="nav-item dropdown">
             <a class="logo-font font-weight-bold nav-link text-black" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Special Offers

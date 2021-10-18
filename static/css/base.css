@@ -1,11 +1,13 @@
 /* ------------------------------- General */ 
 
+/* Sets font and style for the document */
 body { 
     font-family: 'Righteous', cursive;
     background-color: #18191A;
     color: white;
 }
 
+/* Creates a neon-glowing horizontal rule */
 .product-separator {
     border: 2px inset #FF44CC;
     border-radius: 2px;
@@ -21,6 +23,7 @@ body {
     }
   }
 
+/* Styles album and artists cards */
 .card {
     background-image: url("/media/background.png");
     color: black;
@@ -34,6 +37,7 @@ body {
     background-color: transparent;
 }
 
+/* Floating action button */
 .btt-button {
     border: 2px solid black;
     border-radius: 25px;
@@ -50,10 +54,10 @@ body {
     color: black;
 }
 
+/* a */
 .search-terms-and-sorting {
     color: white;
 }
-
 
 .search-terms-and-sorting a {
     color: rgb(225, 225, 225);
@@ -63,12 +67,14 @@ body {
     border: 1px solid #FF44CC;
 }
 
+/* Adds margin and improves text contrast */
 .page-title {
     color: white;
     text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000;
     margin-bottom: 40px;
 }
 
+/* Colours text and rounds buttons */
 .dark-background-light-text-area a, input{
     color: white;
     
@@ -79,10 +85,12 @@ body {
     color: white;
 }
 
+/* Improves text contrast */
 .toast {
     color: black;
 }
 
+/* Rounds button */
 .round-button {
     border-radius: 10px;
 }
@@ -90,9 +98,9 @@ body {
 
 /* ------------------------------- Navbar */ 
 
+/* Sets topnav background image */
 #topnav {
     background: url('/media/background.png') repeat; 
-
 }
 
 #topnav a {
@@ -145,7 +153,6 @@ body {
 @keyframes shopping-cart-link {
     25%  {transform: rotate(-30deg);}
     75%  {transform: rotate(30deg);}
-
 }
 
 /* Profile icon mouseover animation */
@@ -159,7 +166,6 @@ body {
 @keyframes user-icon-loop {
     25%  {transform: translateY(-5px);}
     75%  {transform: translateY(5px);}
-
 }
 
 /* Search bar borders */
@@ -211,6 +217,10 @@ hr {
     height: 2px;
 }
 
+
+/* ------------------------------- Login and Signup */
+
+/* Fixes spotify logo height */
 .spotify img {
     height: 35px;
 }

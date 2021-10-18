@@ -1,4 +1,5 @@
 <ul id="mobile-navbar" class="d-lg-none mb-0">
+    <!-- Search -->
     <li class="list-inline-item">
         <a class="nav-link d-block d-lg-none" href="#" id="mobile-search" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
@@ -24,6 +25,7 @@
             </form>
         </div>
     </li>
+    <!-- Account -->
     <li class="list-inline-item dropdown">
         <a class="nav-link d-block d-lg-none" href="#" id="user-options" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
@@ -53,6 +55,7 @@
             {% endif %}
         </div>
     </li>
+    <!-- Cart -->
     <li class="list-inline-item">
         <a class="{% if grand_total %} font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none"
             href="{% url 'view_cart' %}">
