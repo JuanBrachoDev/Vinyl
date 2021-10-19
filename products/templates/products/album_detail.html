@@ -53,7 +53,7 @@
                     </div>
                     <div class="card-body p-0 text-center text-md-left">
                         {% if album.special_offer_price %}
-                            <small class=""><s>€{{ album.price }}</s></small>
+                            <small class="album-detail-special-original-price"><s>€{{ album.price }}</s></small>
                             <p class="lead mt-0 mb-0 font-weight-bold">€{{ album.special_offer_price }}</p>
                         {% else %}
                             <p class="lead mt-0 mb-0 font-weight-bold">€{{ album.price }}</p>

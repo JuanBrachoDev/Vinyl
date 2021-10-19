@@ -313,4 +313,9 @@ hr {
     .navbar-toggler {
         padding: 0px 6px;
     }
+
+    /* Allows toast to not clip out of view on extra small screens */
+    .message-container {
+        word-break: break-all;
+    }
 }

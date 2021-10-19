@@ -61,6 +61,11 @@
     border-radius: 0px 10px 10px 0px;
 }
 
+/* Improves readability of struck original price */
+.album-detail-special-original-price {
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000;
+}
+
 
 /* ------------------------------- Album and Artist Forms */
 
