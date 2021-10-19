@@ -178,7 +178,7 @@
 			<div class="col-12 col-lg-7 text-right">
                 <!-- Back to Profile -->
                 {% if from_profile %}
-                    <a href="{% url 'profile' %}" class="btn btn-black rounded-0 my-2">
+                    <a href="{% url 'profile' %}" class="btn btn-black round-button my-2">
                         <span class="icon mr-2">
                             <i class="fas fa-angle-left"></i>
                         </span>
@@ -186,7 +186,7 @@
                     </a>
                 <!-- Latest Deals -->
                 {% else %}
-                    <a href="{% url 'albums' %}?category=deals" class="btn btn-black my-2">
+                    <a href="{% url 'albums' %}?category=deals" class="btn btn-black my-2 round-button">
                         <span class="icon mr-2">
                             <i class="fas fa-gifts"></i>
                         </span>
