@@ -30,17 +30,17 @@
             <div class="col-12 col-lg-6 order-lg-last mb-5">
                 <p>Order Summary ({{ product_count }})</p>
                 <div class="row">
-                    <div class="col-7 offset-2">
+                    <div class="col offset-2">
                         <p class="mb-1 mt-0 small">Item</p>
                     </div>
-                    <div class="col-3 text-right">
+                    <div class="col text-right">
                         <p class="mb-1 mt-0 small ">Subtotal</p>
                     </div>
                 </div>
                 <!-- Item List -->
                 {% for item in cart_items %}
                     <div class="row">
-                        <div class="col-2 mb-1">
+                        <div class="col-2 mb-1 checkout-order-summary-image">
                             <a href="{% url 'album_detail' item.album.id %}">
                                 {% if item.album.image %}
                                     <img class="w-100" src="{{ item.album.image.url }}" alt="{{ album.name }}">
@@ -49,11 +49,11 @@
                                 {% endif %}
                             </a>
                         </div>
-                        <div class="col-7">
+                        <div class="col">
                             <p class="my-0"><strong>{{ item.album.name }}</strong></p>
                             <p class="my-0 small">Qty: {{ item.quantity }}</p>
                         </div>
-                        <div class="col-3 text-right">
+                        <div class="col text-right">
                             {% if item.album.special_offer_price %}
                                 <p class="my-0">€{{ item.album.special_offer_price | calc_subtotal:item.quantity }}</p>
                             {% else %}
@@ -65,12 +65,12 @@
                 <!-- Delivery and Total -->
                 <hr class="my-0">
                 <div class="row text-black text-right">
-                    <div class="col-7 offset-2">
+                    <div class="col-8 col-sm-7 offset-sm-2">
                         <p class="my-0">Order Total:</p>
                         <p class="my-0">Delivery:</p>
                         <p class="my-0">Grand Total:</p>
                     </div>
-                    <div class="col-3">
+                    <div class="col-4 col-sm-3">
                         <p class="my-0">€{{ total | floatformat:2 }}</p>
                         <p class="my-0">€{{ delivery | floatformat:2 }}</p>
                         <p class="my-0"><strong>€{{ grand_total | floatformat:2 }}</strong></p>
@@ -119,13 +119,13 @@
                     </fieldset>
 
                     <div class="submit-button text-right mt-5 mb-2">                    
-						<a href="{% url 'view_cart' %}" class="btn btn-outline-black round-button">
+						<a href="{% url 'view_cart' %}" class="btn btn-outline-black round-button mb-1">
 							<span class="icon">
 								<i class="fas fa-chevron-left"></i>
 							</span>
 							<span class="font-weight-bold">Adjust Cart</span>
 						</a>
-						<button id="submit-button" class="btn btn-black round-button">
+						<button id="submit-button" class="btn btn-black round-button mb-1">
 							<span class="font-weight-bold">Complete Order</span>
 							<span class="icon">
 								<i class="fas fa-lock"></i>
@@ -135,7 +135,7 @@
 							<span class="icon">
 								<i class="fas fa-exclamation-circle"></i>
 							</span>
-							<span>Your card will be charged <strong>€{{ grand_total|floatformat:2 }}</strong></span>
+							<span class="mt-1">Your card will be charged <strong>€{{ grand_total|floatformat:2 }}</strong></span>
 						</p>
 					</div>
                 </form>

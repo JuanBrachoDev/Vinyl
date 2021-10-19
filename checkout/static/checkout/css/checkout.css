@@ -41,3 +41,10 @@ has legible contrast */
     background-color: white;
     border-radius: .25rem;
 }
+
+/* Slightly larger container on xl screens */
+@media (max-width: 300px) {
+    .checkout-order-summary-image {
+        display: none;
+    }
+}

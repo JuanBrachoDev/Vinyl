@@ -41,17 +41,21 @@ body {
 .btt-button {
     border: 2px solid black;
     border-radius: 25px;
-    background-color: #FF44CC;
+    background-color: #B026FF;
     height: 40px;
     width: 40px;
     position: fixed;
     bottom: 10px;
     right: 10px;
-}
-
-.btt-button {
     cursor: pointer;
     color: black;
+}
+
+/* Floating action button hover animation */
+.btt-button:hover {
+    transition: background-color 0.5s;
+    background-color: rgb(250, 191, 250);
+    border: 3px solid black;
 }
 
 /* a */
@@ -143,7 +147,7 @@ body {
 }
 
 /* Shopping cart mouseover animation */
-#shopping-cart-link:hover i {
+.shopping-cart-link:hover i {
     animation-duration: 3s;
     animation-name: shopping-cart-link;
     animation-iteration-count: infinite;
@@ -151,12 +155,25 @@ body {
 }
 
 @keyframes shopping-cart-link {
-    25%  {transform: rotate(-30deg);}
-    75%  {transform: rotate(30deg);}
+    25%  {transform: translateX(-5px);}
+    75%  {transform: translateX(5px);}
+}
+
+/* Search icon mouseover animation */
+.search-button:hover i {
+    animation-duration: 3s;
+    animation-name: search-icon-loop;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+}
+
+@keyframes search-icon-loop {
+    25%  {transform:scale(1.1, 1.1)}
+    75%  {transform: scale(0.9, 0.9);}
 }
 
 /* Profile icon mouseover animation */
-#user-options:hover i {
+.user-options:hover i {
     animation-duration: 3s;
     animation-name: user-icon-loop;
     animation-iteration-count: infinite;
@@ -247,6 +264,13 @@ hr {
     .header-container {
         padding-top: 164px;
     }
+
+    /* Menu item background mouseover animation on large navbar */ 
+    .nav-menu-item a:hover {
+        transition: background 0.5s;
+        background: rgba(37, 10, 39, 0.3);
+        border-radius: 50px;
+    }
 }
 
 /* Pad the top a bit when navbar is collapsed on mobile */
@@ -271,12 +295,12 @@ hr {
         padding-right: 8px;
     }
 
-    #user-options span {
+    .user-options span {
         display: none;
     }
 
-    #user-options p:after {
-        content: "Account";
+    .user-options p:after {
+        content: "User";
     }
 
     .navbar {
