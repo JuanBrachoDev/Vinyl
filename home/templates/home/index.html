@@ -63,7 +63,7 @@
                                 </div>
                             {% endif %}
                             <div class="card-body pb-0 pt-0">
-                                <i class="fa fa-music" aria-hidden="true"></i><a href="{% url 'albums' %}?genre={{ deal.genre }}" class="mb-0 mt-0"> {{ deal.genre }}</a>
+                                <i class="fa fa-music" aria-hidden="true"></i><a href="{% url 'albums' %}?genre={{ deal.genre|cut:' ' }}" class="mb-0 mt-0"> {{ deal.genre }}</a>
                             </div>
                             <div class="card-footer pt-0 border-0 text-left">
                                 <div class="row">
@@ -152,7 +152,7 @@
                                 </div>
                             {% endif %}
                             <div class="card-body pb-0 pt-0">
-                                <i class="fa fa-music" aria-hidden="true"></i><a href="{% url 'albums' %}?genre={{ new_arrival.genre }}" class="mb-0 mt-0"> {{ new_arrival.genre }}</a>
+                                <i class="fa fa-music" aria-hidden="true"></i><a href="{% url 'albums' %}?genre={{ new_arrival.genre|cut:' ' }}" class="mb-0 mt-0"> {{ new_arrival.genre }}</a>
                             </div>
                             <div class="card-footer pt-0 border-0 text-left">
                                 <div class="row">
@@ -230,7 +230,7 @@
                                 </div>
                             {% endif %}
                             <div class="card-body pb-0 pt-0">
-                                <i class="fa fa-music" aria-hidden="true"></i><a href="{% url 'albums' %}?genre={{ clearance.genre }}" class="mb-0 mt-0"> {{ clearance.genre }}</a>
+                                <i class="fa fa-music" aria-hidden="true"></i><a href="{% url 'albums' %}?genre={{ clearance.genre|cut:' ' }}" class="mb-0 mt-0"> {{ clearance.genre }}</a>
                             </div>
                             <div class="card-footer pt-0 border-0 text-left">
                                 <div class="row">
@@ -342,7 +342,7 @@
                                         </div>
                                     {% endif %}
                                     <div class="card-body pb-0 pt-0">
-                                        <i class="fa fa-music" aria-hidden="true"></i><a href="{% url 'albums' %}?genre={{ album.genre }}" class="mb-0 mt-0"> {{ album.genre }}</a>
+                                        <i class="fa fa-music" aria-hidden="true"></i><a href="{% url 'albums' %}?genre={{ album.genre|cut:' ' }}" class="mb-0 mt-0"> {{ album.genre }}</a>
                                     </div>
                                     <div class="card-footer pt-0 border-0 text-left">
                                         <div class="row">
@@ -432,7 +432,7 @@
                             </div>
                         {% endif %}
                         <div class="card-body pb-0 pt-0">
-                            <i class="fa fa-music" aria-hidden="true"></i><a href="{% url 'albums' %}?genre={{ album.genre }}" class="mb-0 mt-0"> {{ album.genre }}</a>
+                            <i class="fa fa-music" aria-hidden="true"></i><a href="{% url 'albums' %}?genre={{ album.genre|cut:' ' }}" class="mb-0 mt-0"> {{ album.genre }}</a>
                         </div>
                         <div class="card-footer pt-0 border-0 text-left">
                             <div class="row">

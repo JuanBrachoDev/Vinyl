@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from django.db.models.functions import Lower, Least
+from django.db.models.functions import Lower, Least, Replace
+from django.db.models import Value
 
 import requests
 
@@ -22,7 +23,11 @@ def all_albums(request):
     if request.GET:
         if 'genre' in request.GET:
             genre = request.GET['genre']
-            albums = albums.filter(genre=genre)
+            sortkey = 'lower_name'
+            albums = albums.annotate(
+                valid_genre=Replace("genre", Value(" "), Value(""))
+            )
+            albums = albums.filter(valid_genre=genre)
 
         if 'category' in request.GET:
             category = request.GET['category']

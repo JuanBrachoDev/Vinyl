@@ -49,7 +49,7 @@
                         </div>
                     {% endif %}
                     <div class="card-body p-0 text-center text-md-left">
-                        <i class="fa fa-music" aria-hidden="true"></i><a href="{% url 'albums' %}?genre={{ album.genre }}" class="mb-0 mt-0"> {{ album.genre }}</a>
+                        <i class="fa fa-music" aria-hidden="true"></i><a href="{% url 'albums' %}?genre={{ album.genre|cut:' ' }}" class="mb-0 mt-0"> {{ album.genre }}</a>
                     </div>
                     <div class="card-body p-0 text-center text-md-left">
                         {% if album.special_offer_price %}
