@@ -13,7 +13,7 @@
         - Be able to register with my Spotify account or with my email and a password.
         - Be able log in with my credentials and log out.
         - Be able to recover my password in case I lose it.
-        - Be able to change the default delivery information so it is autofilled whenever I placed an order.
+        - Be able to change the default delivery information so it is auto filled whenever I placed an order.
         - Be able to search for artists, albums and genres so I can find the desired album.
         - Be able to order any album available in the store.
         - Be able to look at each album's details so I can make sure it has the contents I want.
@@ -22,17 +22,17 @@
         - Be able to adjust the quantity of items from within the shopping cart.
         - Be able to easily fill the checkout form and feel like it is a secure transaction.
         - Be able to check for a confirmation email upon successfully ordering any items.
-	- Be able to look for my order history to check past orders.
+	    - Be able to look for my order history to check past orders.
 
     -   #### As an admin I need to
 
         - Be able to do everything a regular user does after my account is created and set as superuser.
-        - Be able to add artists to the catalog.
-        - Be able to modify artists in the catalog.
-        - Be able to remove artists from the catalog.
-        - Be able to add albums to the catalog.
-        - Be able to modify albums in the catalog.
-        - Be able to remove albums from the catalog.
+        - Be able to add artists to the catalogue.
+        - Be able to modify artists in the catalogue.
+        - Be able to remove artists from the catalogue.
+        - Be able to add albums to the catalogue.
+        - Be able to modify albums in the catalogue.
+        - Be able to remove albums from the catalogue.
 
 -   ### Design
     -   #### Colour Scheme
@@ -41,11 +41,10 @@
         -   #FF44CC For the neon horizontal rules and the floating action button.
         -   #FFF For the nav menu and texts on dark background.
         -   #B026FF For the nav menu text.
-        -   #2e1155 For the topnav logo, text and icon color.
+        -   #2e1155 For the topnav logo, text and icon colour.
 
         The following colour palette was chosen as the inspiration for the base colours picked
         ![Colour Scheme](docs/readme/colour_scheme.png)
-
 
 -   ### Typography
     -   Two main fonts were chosen for this page 
@@ -71,6 +70,21 @@
 -   ### General Schema
    ![General Schema](docs/readme/schema/general_schema.png)
 
+-   ### Artist Schema
+   ![Artist Schema](docs/readme/schema/artist_model.png)
+
+-   ### Album Schema
+   ![Album Schema](docs/readme/schema/album_model.png)
+
+-   ### Order Schema
+   ![Order Schema 1](docs/readme/schema/order_model_1.png)
+   ![Order Schema 2](docs/readme/schema/order_model_2.png)
+
+-   ### Order Line Item Schema
+   ![Order Line Item Schema](docs/readme/schema/order_line_item_model.png)
+
+-   ### User Profile Schema
+   ![User Profile Schema](docs/readme/schema/profile_model.png)
 
 ## Features
 
@@ -83,7 +97,7 @@
     Allows users to navigate each page of the website efficiently.
 
 -  ### Search Bar
-    Lets users filter albums by name, artist name and genre.
+    Let’s users filter albums by name, artist name and genre.
 
 -  ### Home Page
     Introduces the user to the website, a dynamic sample of different special offers, and shows all albums at the end.
@@ -125,7 +139,7 @@
 -   ### Footer: 
     A footer with contact info and links to social media for users to be able to contact and interact with the shop easily.
 -   ### Other Products:
-    More types of products are planned ahead, including artist-related merchandise and hardware like turntables and gramophones.
+    More types of products are planned, including artist-related merchandise and hardware like turntables and gramophones.
 -   ### Ratings System:
     The ability to rate products when bought will help other users pick and better decide if a product fits their needs.
     
@@ -141,7 +155,6 @@
 -   [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 -   [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
 -   [Django Template Language](https://docs.djangoproject.com/en/3.2/ref/templates/language/)
-
 
 ### Frameworks, Libraries & Programs Used
 
@@ -160,7 +173,7 @@
 1. [Google Fonts](https://fonts.google.com)
     - Google fonts were used to import the 'Monoton' and 'Righteous' fonts.
 1. [Font Awesome](https://fontawesome.com)
-    - Font Awesome was used to add icons like the ones used in the addremove buttons, and the tutorial floating action button.
+    - Font Awesome was used to add icons like the ones used in the add remove buttons, and the tutorial floating action button.
 1. [jQuery](https://jquery.com)
     - jQuery was used to enhance JavaScript code, providing useful methods and selectors to it.
 1. [Git](https://git-scm.com)
@@ -275,7 +288,7 @@ AWS were used to store and serve both static and media files using the following
                       ExposeHeaders []
                   }
                 ]
-    1. Next look for Bucket policy and select the policy generator, for the policy type select S3 Bucket Policy, allow all principals by typing in , select the GetObject, PutObject, DeleteObject actions and finally copy the ARN from the policy tab and paste it in the ARN field. Copy the resulting policy and paste it in the policy tab. Before saving add a  at the end of the ARN to allow access to all resources in the bucket. 
+    1. Next look for Bucket policy and select the policy generator, for the policy type select S3 Bucket Policy, allow all principals by typing in , select the GetObject, PutObject, DeleteObject actions and finally copy the ARN from the policy tab and paste it in the ARN field. Copy the resulting policy and paste it in the policy tab. Before saving add a /\* at the end of the ARN to allow access to all resources in the bucket. 
     1. Back in the permissions tab look for Access control list (ACL) and set the list and read objects permissions for everyone under the Public Access section and save your changes.
 
 - ##### User
@@ -331,7 +344,6 @@ AWS were used to store and serve both static and media files using the following
             class StaticStorage(S3Boto3Storage)
                 location = settings.STATICFILES_LOCATION
 
-
             class MediaStorage(S3Boto3Storage)
                 location = settings.MEDIAFILES_LOCATION
 
@@ -363,12 +375,13 @@ AWS were used to store and serve both static and media files using the following
 -  Clearance parallax background By Inga Seliverstova. Available in [Pexels](https://www.pexels.com/photo/black-corded-headphones-3413462).
 -  Featured Artist parallax background By Elviss Railijs Bitāns. Available in [Pexels](https://www.pexels.com/photo/blue-vinyl-record-playing-on-turntable-1389429).
 - Album and Artist Banners Provided by [Google Images](https://www.google.com/imghp?hl=en) under the [Education Copyright Exception](https://www.copyrightuser.org/understand/exceptions/education).
--  Logo and Default AlbumArtist “56 Pirate icons” (c) by Game-Icons.net is licensed under (CC BY 3.0), content found in [Game-icons.net](https://game-icons.net).
+-  Logo and Default Album andArtist “56 Pirate icons” (c) by Game-Icons.net is licensed under (CC BY 3.0), content found in [Game-icons.net](https://game-icons.net).
 -  Spotify Logo Available in their [developer dashboard](https://developer.spotify.com/documentation/general/design-and-branding).
-
 
 ### Acknowledgements
 
--   Friends and family continously giving me tips and ideas for the layout.
+-   Friends and family continuously giving me tips and ideas for the layout.
 -   Code Institute tutor support for their amazing guidance.
 -   My Mentor Narender for continuous helpful feedback.
+
+
