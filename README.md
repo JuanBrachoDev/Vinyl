@@ -162,6 +162,10 @@
     - Full Stack framework used to build the project.
 1. [Django-Allauth](https://django-allauth.readthedocs.io/en/latest/index.html)
     - Django app that allows for both local and social authentication.
+1. [Bootstrap](https://getbootstrap.com/)
+    - Front End toolkit used to create the responsive layout.
+1. [Stripe](https://stripe.com/)
+    - Payment infrastructure used to process the order payments.
 1. [Black](https://black.readthedocs.io/en/stable/index.html)
     - Code formatter used for python files.
 1. [W3 Validator](https://validator.w3.org)
