@@ -1,4 +1,4 @@
-Go back to original [document](https://github.com/JuanBrachoDev/Virtual-Parlay/tree/master/README.md).
+Go back to original [document](https://github.com/JuanBrachoDev/Vinyl/tree/master/README.md).
 
 ### Validation
 
@@ -12,7 +12,7 @@ The W3C Markup Validator, W3C CSS Validator Services, JSHint, PEP8 Online and Ch
     >   No other errors were found.
 -   [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
     >   All CSS filed validated successfully.
--   [JSHint](https://jshint.com/) -
+-   [JSHint](https://jshint.com/)
     >   Results show unused variables but ignoring those warnings as the variables are not used within the same file.
     >   No other errors were found.
 -   [Black](https://black.readthedocs.io/en/stable/index.html)
