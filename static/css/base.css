@@ -303,6 +303,14 @@ hr {
         content: "User";
     }
 
+    .user-options-mobile span {
+        display: none;
+    }
+
+    .user-options-mobile p:after {
+        content: "User";
+    }
+
     .navbar {
         padding-left: 8px;
         padding-right: 8px; 
